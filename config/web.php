@@ -6,11 +6,15 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'defaultRoute' => 'page/index',
     'components' => [
+
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '2VJzl2Q_hz4uxkUrbUe0ihVHMnYzJIQS',
+            'cookieValidationKey' => 'qDIJr2rfKmmBC6LWo9mdWxL-FBrnGXEv',
+            'class' => 'app\components\routers\LangRequest'
         ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -38,14 +42,35 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
+
         'urlManager' => [
+            //'class' => 'app\components\routers\LangUrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
+
+                '<language:\w{2}>'=>'/',
+                '<language:\w{2}\/>'=>'/',
+                '<language:\w{2}>/page'=>'page/index',
+                '<language:\w{2}>/<controller:(page)\/>'=>'page/index',
+                //'<language:\w{2}>/page/<action:\w+>'=>'page/<action>',
+                //'<language:\w{2}>/page/<action:\w+>/<id:\d+>'=>'page/<action>',
+
+
+                '<language:\w{2}>/<controller:[\w-]+>/<action:\w+>'=>'<controller>/<action>',
+                '<language:\w{2}>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+
+                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+
+                'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
+                'gii/<controller:\w+>/<action:\w+>/<id:\w+>'=>'gii/<controller>/<action>',
+
+
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
