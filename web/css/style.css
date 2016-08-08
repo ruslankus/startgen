@@ -95,7 +95,7 @@ body a:hover{
 	background:#42a5f5;
 }
 .top-nav li a{
-	padding: 15px 101px;
+	padding: 15px 0px;
 	display: block;
 	text-transform: uppercase;
 	color: #FFF;
@@ -105,7 +105,7 @@ body a:hover{
 	-o-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
 	font-size: 0.9em;
-	 text-align: center;
+	text-align: center;
 	font-family: 'Sintony', sans-serif;
 }
 .top-nav li a:hover{
@@ -1091,7 +1091,7 @@ body a:hover{
 		width:90%;
 	}
 	.top-nav li a {
-		padding: 15px 95.6px;
+		/*padding: 15px 95.6px; */
 	}
 	.grids h5 {
 		width: 84%;
@@ -1118,7 +1118,7 @@ body a:hover{
 		width:90%;
 	}
 	.top-nav li a {
-		padding: 15px 87.9px;
+		/*  padding: 15px 87.9px; */
 	}
 	.grids h5 {
 		width: 84%;
@@ -1155,7 +1155,7 @@ body a:hover{
 		width:90%;
 	}
 	.top-nav li a {
-		padding: 15px 64.9px;
+		/* padding: 15px 64.9px; */
 	}
 	.grids h5 {
 		width: 79%;

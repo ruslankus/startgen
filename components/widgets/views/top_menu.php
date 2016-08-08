@@ -10,11 +10,20 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="home"><a href="_index.html">Home</a></li>
-                <li class=""><a href="about.html">About</a></li>
-                <li class=""><a href="services.html">Catalog</a></li>
-                <!--<li class=""><a href="gallery.html">Gallery</a></li> -->
-                <li class=""><a href="contact.html">Contact</a></li>
+
+                <?php foreach ($menu_with_links as $item):
+
+                    $trl = array_shift($item['trl']);
+                    $trl_content = !empty($trl['menu_text']) ? $trl['menu_text'] : "!_" . $item['label'];
+                ?>
+
+                    <li class="home">
+                        <a href="<?= $item['href']?>">
+                            <?= $trl_content ?>
+                        </a>
+                    </li>
+
+                <?php endforeach;?>
             </ul>
         </div>
     </div>

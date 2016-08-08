@@ -50,16 +50,21 @@ $config = [
             'enableStrictParsing' => false,
             'rules' => [
 
+                "/" => "/",
                 '<language:\w{2}>'=>'/',
                 '<language:\w{2}\/>'=>'/',
+
+
                 '<language:\w{2}>/page'=>'page/index',
                 '<language:\w{2}>/<controller:(page)\/>'=>'page/index',
-                //'<language:\w{2}>/page/<action:\w+>'=>'page/<action>',
-                //'<language:\w{2}>/page/<action:\w+>/<id:\d+>'=>'page/<action>',
+                '<language:\w{2}>/page/<id:\d+>'=>'page/view',
+                '<language:\w{2}>/page/<action:\w+>'=>'page/<action>',
+                '<language:\w{2}>/page/<action:\w+>/<id:\d+>'=>'page/<action>',
 
 
                 '<language:\w{2}>/<controller:[\w-]+>/<action:\w+>'=>'<controller>/<action>',
                 '<language:\w{2}>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+
 
                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
