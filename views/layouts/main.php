@@ -57,9 +57,12 @@
 
 <?= MenuWidget::widget(); ?>
 
+
+<?php if(!empty($this->params['slider'])):?>
 <!--start-image-slider-->
 <?= SliderWidget::widget();?>
 <!--End-image-slider-->
+<?php endif; ?>
 
 <div class="content">
     <div class="container">

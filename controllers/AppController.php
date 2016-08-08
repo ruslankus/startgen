@@ -19,6 +19,7 @@ abstract class AppController extends Controller
     public function init()
     {
         $this->_current_lang = \Yii::$app->session->get('current_language');
+
     }
 
 
