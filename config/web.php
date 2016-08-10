@@ -43,6 +43,8 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
 
+        'db2' => require(__DIR__ . '/db2.php'),
+
         'urlManager' => [
             //'class' => 'app\components\routers\LangUrlManager',
             'enablePrettyUrl' => true,
@@ -72,6 +74,8 @@ $config = [
                 '<language:\w{2}>/<controller:[\w-]+>/<action:\w+>'=>'<controller>/<action>',
                 '<language:\w{2}>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 
+                "data" => "data/index",
+                "<controller:(data)\/>" => "data/index",
 
                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

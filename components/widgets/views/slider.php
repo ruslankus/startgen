@@ -1,5 +1,6 @@
 <?php
     use yii\helpers\Url;
+    use app\models\Labels;
 ?>
 <div class="image-slider">
 
@@ -34,7 +35,7 @@
                             <h2><?= $content['title'] ?></h2>
                             <p> <?= $content['text']?> </p>
 
-                            <a href="#" class="book-apm">Book appintement</a>
+                            <a href="#" class="book-apm"><?= Labels::t('make appointent') ?></a>
                         </div>
                     </div>
                 </div>

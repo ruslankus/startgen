@@ -30,7 +30,7 @@
                     <p><?= $item_content['snippet']?></p>
                     <div class="button">
                         <span>
-                            <a href="<?= Url::toRoute(['catalog/category', 'language' => $lang_prefix, 'id' => $item_content['id']])?>">
+                            <a href="<?= Url::toRoute(['catalog/category', 'language' => $lang_prefix, 'id' => $item['id']])?>">
                                 Read More
                             </a>
                         </span>

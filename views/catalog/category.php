@@ -1,5 +1,37 @@
+<?php
+
+    use yii\helpers\Html;
+    use yii\widgets\LinkPager;
+    use yii\widgets\Breadcrumbs;
+    use app\models\Languages;
+    use app\models\Labels;
+
+    $category_content = array_shift($category['content']);
+    $lang_prefix = Languages::getCurrentLanguage()['prefix'];
+?>
 <div class="services category">
-    <h4>Startes product list</h4><h5> </h5><div class="clearfix"> </div>
+    <div>
+
+        <?= Breadcrumbs::widget([
+        //'itemTemplate' => "<li><i>{link}</i></li>\n", // template for all links
+        'homeLink' =>
+            ['label' => Labels::t('catalog'), 'url' => ['catalog/index', 'language' => $lang_prefix] ],
+        'links' => [
+
+                [
+                    'label' => $category_content['title'],
+                    //'url' => ['post-category/view', 'id' => 10],
+
+                ],
+
+            ]
+        ]);
+
+        ?>
+
+
+    </div>
+    <h4><?= $category_content['title'] ?></h4><h5> </h5><div class="clearfix"> </div>
     <div>
         <p>
             Parduodame naujus STARTERIUS, GENERATORIUS 12V ir 24V visų tipų automobiliams - lengviesiems
@@ -13,56 +45,32 @@
 
 
     <div class="section group">
+        <?php foreach ($products as $prd):
 
-        <div class="col-xs-12 category_list_view">
-            <div class="category__list_images clearfix">
-                <div class="listimg listimg_2_of_1">
-                    <a href="images/products/original_CS1399.JPG" data-lightbox="CS1399" >
-                        <img src="images/products/thumb_CS1399.jpg" alt="">
-                    </a>
+            $thumb_link = "/images/products/{$prd['old_id']}/thumb_{$prd['img']}";
+            $original_link = "/images/products/{$prd['old_id']}/original_{$prd['img']}";
+
+        ?>
+
+            <div class="col-xs-12 category_list_view">
+                <div class="category__list_images clearfix">
+                    <div class="listimg listimg_2_of_1">
+                        <a href="<?= $original_link?>" data-lightbox="<?= $prd['name'] ?>" >
+                            <?= Html::img("@web{$thumb_link}", ['alt' => $prd['name']])  ?>
+                        </a>
+                    </div>
+                    <div class="text list_2_of_1">
+                        <h3><?= $prd['name']?> </h3>
+                        <p><?= $prd['text']?></p>
+
+                    </div>
+
                 </div>
-                <div class="text list_2_of_1">
-                    <h3>R1399 </h3>
-                    <p>BOSCH - SCANIA (24V 5.5KW)</p>
-
-                </div>
-
             </div>
-        </div>
+
+        <?php endforeach; ?>
 
 
-        <div class="col-xs-12 category_list_view">
-            <div class="category__list_images clearfix">
-                <div class="listimg listimg_2_of_1">
-                    <a href="/images/products/original_CS1388.jpg" data-lightbox="CS1388" >
-                        <img src="/images/products/thumb_CS1388.jpg" alt="">
-                    </a>
-                </div>
-                <div class="text list_2_of_1">
-                    <h3>R1388 </h3>
-                    <p>MITSUBISHI - VOLVO (24V 4.5KW)</p>
-
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="col-xs-12 category_list_view">
-            <div class="category__list_images clearfix">
-                <div class="listimg listimg_2_of_1">
-                    <a href="images/products/original_CS1062.jpg" data-lightbox="CS1062" >
-                        <img src="/images/products/thumb_CS1062.jpg" alt="">
-                    </a>
-                </div>
-                <div class="text list_2_of_1">
-                    <h3>R1062 </h3>
-                    <p>BOSCH - AUDI SEAT SKODA VW (12V 1.1KW)</p>
-
-                </div>
-
-            </div>
-        </div>
 
 
         <div class="col-xs-12 category_list_view">
@@ -82,70 +90,15 @@
         </div>
 
 
-        <div class="col-xs-12 category_list_view">
-            <div class="category__list_images clearfix">
-                <div class="listimg listimg_2_of_1">
-                    <img src="/images/products/thumb_CS1399.jpg" alt="">
-                </div>
-                <div class="text list_2_of_1">
-                    <h3>
-                        <a href="product_card.html">R1399 </a>
-                    </h3>
-                    <p>BOSCH - SCANIA (24V 5.5KW)</p>
 
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-xs-12 category_list_view">
-            <div class="category__list_images clearfix">
-                <div class="listimg listimg_2_of_1">
-                    <img src="/images/products/thumb_CS1399.jpg" alt="">
-                </div>
-                <div class="text list_2_of_1">
-                    <h3><a href="product_card.html">R1399 </a></h3>
-                    <p>BOSCH - SCANIA (24V 5.5KW)</p>
-
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="col-xs-12 category_list_view">
-            <div class="category__list_images clearfix">
-                <div class="listimg listimg_2_of_1">
-                    <img src="images/products/thumb_CS1399.jpg" alt="">
-                </div>
-                <div class="text list_2_of_1">
-                    <h3><a href="#">R1399 </a></h3>
-                    <p>BOSCH - SCANIA (24V 5.5KW)</p>
-
-                </div>
-
-            </div>
-        </div>
 
 
     </div>
     <nav class="text-center">
-        <ul class="pagination text-center">
-            <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
+        <?php if($pages->pageCount > 1):?>
+            <div class="clearfix"></div>
+            <?= LinkPager::widget(['pagination' => $pages ]); ?>
+        <?php endif; ?>
+
     </nav>
 </div>
