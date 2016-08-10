@@ -9,8 +9,11 @@
 namespace app\controllers;
 
 
+use app\models\Category;
+use app\models\Headlines;
 use app\models\Languages;
 use app\models\Pages;
+use app\models\Settings;
 use Yii;
 
 
@@ -81,7 +84,16 @@ class PageController extends AppController
 
     private function _getHeadline(array $block)
     {
-        return $this->renderPartial('partials/_headline');
+        $block_values_array = explode(',' , $block['block_value']);
+
+        $headline_array = Headlines::find()->with('content')
+            ->where(['id' => $block_values_array])
+            ->limit(4)
+            ->asArray()
+            ->all();
+
+
+        return $this->renderPartial('partials/_headline', compact('headline_array'));
     }
 
 
@@ -93,7 +105,19 @@ class PageController extends AppController
 
     private function _getCategory(array $block)
     {
-        return $this->renderPartial('partials/_category');
+        $category_array = Category::find()->with('content')
+            ->where(['not in', 'id', 1])
+            ->limit(4)
+            ->asArray()
+            ->all();
+
+        return $this->renderPartial('partials/_category', compact('category_array'));
+    }
+
+
+    private function _getForm(array $block)
+    {
+       return $this->renderPartial('partials/_form');
     }
 
 

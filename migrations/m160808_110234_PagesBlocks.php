@@ -22,7 +22,7 @@ class m160808_110234_PagesBlocks extends Migration
             [1, 1,'','','content', ''],
             [1, 6,'1,2,3,4','', 'category', ''],
             [2, 1,'','' , 'content', ''],
-            [3, 1,'','' ,'content', ''],
+            [3, 2,'','' ,'content', ''],
         ]);
 
     }
