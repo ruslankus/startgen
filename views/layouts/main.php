@@ -13,7 +13,6 @@
 
 <?php $this->beginPage() ?>
 <!DOCTYPE HTML>
-<html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
 

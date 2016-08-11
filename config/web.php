@@ -7,6 +7,15 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'defaultRoute' => 'page/index',
+
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Admin',
+            'layout' => 'admin',
+            'defaultRoute' => 'menu/index',
+        ],
+    ],
+
     'components' => [
 
         'request' => [
@@ -19,9 +28,11 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\modules\admin\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' =>'/admin/auth/login'
         ],
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -77,8 +88,14 @@ $config = [
                 "data" => "data/index",
                 "<controller:(data)\/>" => "data/index",
 
+                'admin/<action:(login|logout)>' => 'admin/auth/<action>',
+
                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+
+
+                'admin/<controller:\w+>/<action:\w+>'=>'admin/<controller>/<action>',
+                'admin/<controller:\w+>/<action:\w+>/<id:\w+>'=>'admin/<controller>/<action>',
 
                 'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
                 'gii/<controller:\w+>/<action:\w+>/<id:\w+>'=>'gii/<controller>/<action>',
