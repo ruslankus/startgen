@@ -14,14 +14,18 @@ use yii\base\Widget;
 use app\models\Menu;
 use yii\helpers\Url;
 
+
 class MenuWidget extends Widget
 {
+    public $page_label;
+
     public function run()
     {
 
         $menu_with_links = [];
 
         $menu = Menu::find()->with('contentType', 'trl')->asArray()->all();
+
 
         foreach ($menu as $m){
 
@@ -33,7 +37,7 @@ class MenuWidget extends Widget
         }
 
 
-        return $this->render('top_menu', compact('menu_with_links'));
+        return $this->render('top_menu',['menu_with_links' => $menu_with_links, 'page_label' => $this->page_label ]);
     }
 
 

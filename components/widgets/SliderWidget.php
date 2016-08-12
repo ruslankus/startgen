@@ -12,10 +12,13 @@ namespace app\components\widgets;
 use app\models\Languages;
 use app\models\Sliders;
 use yii\base\Widget;
+use app\components\ctraits\TimeTrait;
 use Yii;
 
 class SliderWidget extends Widget
 {
+    use TimeTrait;
+    
     public function run()
     {
         $content = [];
@@ -31,7 +34,7 @@ class SliderWidget extends Widget
                 ->all();
 
             $content = $this->render('slider', compact('sliders_array'));
-            Yii::$app->cache->add($cache_name,$content,60);
+            Yii::$app->cache->add($cache_name,$content, self::$cache_time);
         }
 
         return $content;

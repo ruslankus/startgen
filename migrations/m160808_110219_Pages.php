@@ -16,7 +16,7 @@ class m160808_110219_Pages extends Migration
         $this->batchInsert('pages', ['label', 'main','order'], [
 
             ['main', true,'',],
-            ['catalog', '', ''],
+            ['about', '', ''],
             ['contacts', '', '']
         ]);
     }

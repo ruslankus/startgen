@@ -15,10 +15,11 @@
 
                     $trl = array_shift($item['trl']);
                     $trl_content = !empty($trl['menu_text']) ? $trl['menu_text'] : "!_" . $item['label'];
+                    $active = ($page_label == $item['label']) ? 'active' : '';
                 ?>
 
                     <li class="home">
-                        <a href="<?= $item['href']?>">
+                        <a href="<?= $item['href']?>" class="<?= $active ?>">
                             <?= $trl_content ?>
                         </a>
                     </li>

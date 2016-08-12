@@ -14,12 +14,15 @@ use app\models\Headlines;
 use app\models\Languages;
 use app\models\Pages;
 use app\models\Settings;
+use app\components\ctraits\TimeTrait;
 use Yii;
 
 
 class PageController extends AppController
 {
-
+    
+    use TimeTrait;
+    
     public function actionIndex()
     {
         Yii::$app->view->params['slider'] = true;
@@ -41,10 +44,14 @@ class PageController extends AppController
 
                 $content_array[] = $this->$method_name($block);
             }
-
-            Yii::$app->cache->add($cache_name,$content_array,60);
+            
+            $content_array['page_label'] = $page['label'];
+            Yii::$app->cache->add($cache_name,$content_array,self::$cache_time);
         }
 
+        Yii::$app->view->params['page_label'] = $content_array['page_label'];
+        //unset label
+        unset($content_array['page_label']);
         return  $this->render('index', compact('content_array'));
     }
 
@@ -71,10 +78,15 @@ class PageController extends AppController
 
                 $content_array[] = $this->$method_name($block);
             }
-
-            Yii::$app->cache->add($cache_name,$content_array,60);
+            
+            $content_array['page_label'] = $page['label'];
+            
+            Yii::$app->cache->add($cache_name,$content_array,self::$cache_time);
         }
 
+        Yii::$app->view->params['page_label'] = $content_array['page_label'];
+        //unset label
+        unset($content_array['page_label']);
         return  $this->render('index', compact('content_array'));
     }
 

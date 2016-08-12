@@ -108,7 +108,7 @@ body a:hover{
 	text-align: center;
 	font-family: 'Sintony', sans-serif;
 }
-.top-nav li a:hover{
+.top-nav li a:hover, .top-nav li a.active {
 	background:#42a5f5 !important;
 }
 .navbar-nav {
@@ -261,6 +261,7 @@ body a:hover{
     background:#42a5f5;
     color: #fff;
     padding: 1em 1.5em;
+    height:250px;
 }
 .active-grid:hover{
 	background:#6a737b;

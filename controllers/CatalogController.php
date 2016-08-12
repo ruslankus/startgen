@@ -16,6 +16,12 @@ use Yii;
 
 class CatalogController extends AppController
 {
+    
+    public function init()
+    {
+        parent::init();
+        Yii::$app->view->params['page_label'] = 'catalog';
+    }
 
     public function actionIndex()
     {

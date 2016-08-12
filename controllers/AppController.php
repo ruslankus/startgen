@@ -13,7 +13,7 @@ use yii\web\Controller;
 
 abstract class AppController extends Controller
 {
-
+    
     protected $_current_lang;
 
     public function init()

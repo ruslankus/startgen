@@ -54,7 +54,7 @@
 <!--End-header-->
 
 
-<?= MenuWidget::widget(); ?>
+<?= MenuWidget::widget(['page_label' => $this->params['page_label']]); ?>
 
 
 <?php if(!empty($this->params['slider'])):?>
@@ -150,10 +150,6 @@
         window.scrollTo(0,1);
     }
 </script>
-<script src="js/jquery.min.js"></script>
-
-<script src="js/bootstrap.min.js"></script>
-<script src="js/common.js"></script>
 
 <?php $this->endBody() ?>
 </body>
