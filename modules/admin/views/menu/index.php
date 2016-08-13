@@ -23,9 +23,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'label',
-            'content_type',
+            [
+                'attribute' => 'content_type',
+                'value' => function($data)
+                {
+                    return $data->label;
+                }
+
+            ],
             'content_id',
-            'content_value',
+            //'content_value',
             // 'order',
 
             ['class' => 'yii\grid\ActionColumn'],

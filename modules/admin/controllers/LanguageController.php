@@ -3,16 +3,16 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Menu;
+use app\modules\admin\models\Languages;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * MenuController implements the CRUD actions for Menu model.
+ * LanguageController implements the CRUD actions for Languages model.
  */
-class MenuController extends AppController
+class LanguageController extends AppController
 {
     /**
      * @inheritdoc
@@ -30,13 +30,13 @@ class MenuController extends AppController
     }
 
     /**
-     * Lists all Menu models.
+     * Lists all Languages models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Menu::find()->with('contentType'),
+            'query' => Languages::find(),
         ]);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class MenuController extends AppController
     }
 
     /**
-     * Displays a single Menu model.
+     * Displays a single Languages model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class MenuController extends AppController
     }
 
     /**
-     * Creates a new Menu model.
+     * Creates a new Languages model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Menu();
+        $model = new Languages();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class MenuController extends AppController
     }
 
     /**
-     * Updates an existing Menu model.
+     * Updates an existing Languages model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class MenuController extends AppController
     }
 
     /**
-     * Deletes an existing Menu model.
+     * Deletes an existing Languages model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class MenuController extends AppController
     }
 
     /**
-     * Finds the Menu model based on its primary key value.
+     * Finds the Languages model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Menu the loaded model
+     * @return Languages the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Menu::findOne($id)) !== null) {
+        if (($model = Languages::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -36,6 +36,13 @@ class Menu extends \yii\db\ActiveRecord
         ];
     }
 
+
+
+    public function getContentType()
+    {
+        return $this->hasOne(MenuContentType::className(),['id' => 'content_type']);
+    }
+
     /**
      * @inheritdoc
      */
@@ -44,7 +51,7 @@ class Menu extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'label' => 'Label',
-            'content_type' => 'Content Type',
+            'content_type' => 'Page Type',
             'content_id' => 'Content ID',
             'content_value' => 'Content Value',
             'order' => 'Order',

@@ -1,5 +1,5 @@
 <?php
-use yii\helpers\Url;
+    use yii\helpers\Url;
 ?>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -14,7 +14,7 @@ use yii\helpers\Url;
             <ul class="nav navbar-nav">
 
                 <li class="active">
-                    <a href="<?= Url::to(['/admin/orders'])?>">Orders</a>
+                    <a href="<?= Url::to(['/admin/menu'])?>">Menu structure</a>
                 </li>
 
 
@@ -29,7 +29,10 @@ use yii\helpers\Url;
 
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">Product menu<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">
+                        Product menu
+                        <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu" role="menu">
 
                         <li>
@@ -44,7 +47,11 @@ use yii\helpers\Url;
                 >
                 <li><a href="#">Users</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Settings list <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                        Settings list
+                        <span class="caret"></span>
+                    </a>
+
                     <ul class="dropdown-menu">
                         <li><a href="#">Main setting</a></li>
                         <li><a href="#">Languages</a></li>

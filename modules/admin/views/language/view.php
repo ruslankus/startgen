@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Menu */
+/* @var $model app\modules\admin\models\Languages */
 
-$this->title = "Menu: " . $model->label;
-$this->params['breadcrumbs'][] = ['label' => 'Menus', 'url' => ['index']];
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Languages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="menu-view">
+<div class="languages-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,11 +29,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'label',
-            'content_type',
-            'content_id',
-            'content_value',
-            'order',
+            'prefix',
+            'locale',
+            'name',
+            'active',
+            'default',
+            'created_at',
+            'updated_at',
         ],
     ]) ?>
 

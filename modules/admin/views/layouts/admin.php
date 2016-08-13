@@ -2,6 +2,7 @@
 use app\assets\AdminAsset;
 use app\modules\admin\components\widgets\MenuAdminWidget;
 use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
 
 AdminAsset::register($this);
 
@@ -30,6 +31,14 @@ AdminAsset::register($this);
 
     <?= MenuAdminWidget::widget();?>
 
+
+    <div class="container">
+        <?= Breadcrumbs::widget([
+            'homeLink'=>false ,
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+
+    </div>
 
     <section id="main" class="container">
 
