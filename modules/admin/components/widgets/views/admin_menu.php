@@ -19,10 +19,13 @@
 
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">Categories<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">
+                        Headlines & Sliders
+                        <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="<?= Url::to(['/admin/categories'])?>">Categories index</a></li>
-                        <li><a href="#">Add category</a></li>
+                        <li><a href="#">Sliders</a></li>
+                        <li><a href="#">Healines</a></li>
                     </ul>
                 </li>
 
@@ -53,8 +56,12 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="#">Main setting</a></li>
-                        <li><a href="#">Languages</a></li>
+                        <li>
+                            <a href="<?= Url::toRoute(['/admin/settings']) ?>">Main setting</a>
+                        </li>
+                        <li>
+                            <a href="<?= Url::toRoute(['/admin/language']) ?>">Languages</a>
+                        </li>
                         <li><a href="#">Labels</a></li>
                     </ul>
                 </li>
