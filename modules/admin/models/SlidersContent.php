@@ -29,7 +29,7 @@ class SlidersContent extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['slide_id', 'lang_id'], 'required'],
+            [['slide_id', 'lang_id', 'title', 'text'], 'required'],
             [['slide_id', 'lang_id'], 'integer'],
             [['text'], 'string'],
             [['title'], 'string', 'max' => 255],

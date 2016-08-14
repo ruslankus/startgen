@@ -18,6 +18,9 @@ use Yii;
  */
 class Languages extends \yii\db\ActiveRecord
 {
+
+    private static $_langauge_map = [];
+
     /**
      * @inheritdoc
      */
@@ -56,5 +59,22 @@ class Languages extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+
+    protected static function setMap()
+    {
+        $languages_array = self::find()->asArray()->all();
+        self::$_langauge_map = array_column($languages_array,null,'id');
+    }
+
+
+    public static function getLangMap()
+    {
+        if(empty(self::$_langauge_map)){
+            self::setMap();
+        }
+
+        return self::$_langauge_map;
     }
 }

@@ -24,7 +24,11 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Sliders</a></li>
+                        <li>
+                            <a href="<?= Url::to(['/admin/sliders'])?>">
+                                Sliders
+                            </a>
+                        </li>
                         <li><a href="#">Healines</a></li>
                     </ul>
                 </li>

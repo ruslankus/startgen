@@ -3,19 +3,17 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Languages;
+use app\modules\admin\models\SlidersContent;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * LanguageController implements the CRUD actions for Languages model.
+ * SlidersContentController implements the CRUD actions for SlidersContent model.
  */
-class LanguageController extends AppController
+class SlidersContentController extends Controller
 {
-
-
     /**
      * @inheritdoc
      */
@@ -31,17 +29,14 @@ class LanguageController extends AppController
         ];
     }
 
-
-
-
     /**
-     * Lists all Languages models.
+     * Lists all SlidersContent models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Languages::find(),
+            'query' => SlidersContent::find(),
         ]);
 
         return $this->render('index', [
@@ -50,7 +45,7 @@ class LanguageController extends AppController
     }
 
     /**
-     * Displays a single Languages model.
+     * Displays a single SlidersContent model.
      * @param integer $id
      * @return mixed
      */
@@ -62,13 +57,13 @@ class LanguageController extends AppController
     }
 
     /**
-     * Creates a new Languages model.
+     * Creates a new SlidersContent model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Languages();
+        $model = new SlidersContent();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -80,7 +75,7 @@ class LanguageController extends AppController
     }
 
     /**
-     * Updates an existing Languages model.
+     * Updates an existing SlidersContent model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -99,7 +94,7 @@ class LanguageController extends AppController
     }
 
     /**
-     * Deletes an existing Languages model.
+     * Deletes an existing SlidersContent model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -112,15 +107,15 @@ class LanguageController extends AppController
     }
 
     /**
-     * Finds the Languages model based on its primary key value.
+     * Finds the SlidersContent model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Languages the loaded model
+     * @return SlidersContent the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Languages::findOne($id)) !== null) {
+        if (($model = SlidersContent::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

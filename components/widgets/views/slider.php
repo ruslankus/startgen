@@ -29,7 +29,7 @@
 
             <div class="item <?= $active ?>">
 
-                <div class="item-inner" style="background-image: url('<?= Url::to(["/images/{$slide['img']}" ],true)?>');">
+                <div class="item-inner" style="background-image: url('<?= Url::to(["/images/sliders/{$slide['img']}" ],true)?>');">
                     <div class="promo-section">
                         <div class="container">
                             <h2><?= $content['title'] ?></h2>

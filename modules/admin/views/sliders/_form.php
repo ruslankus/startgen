@@ -22,11 +22,11 @@ use yii\widgets\ActiveForm;
     <div class="form-group">
         <label>Current photo</label>
         <div>
-            <?= Html::img("@web/images/{$model->img}", ['width' => '200'])?>
+            <?= Html::img("@web/images/sliders/{$model->img}", ['width' => '200'])?>
         </div>
     </div>
     <?php endif;?>
-    <?= $form->field($model, 'upload_image')->fileInput([]) ?>
+    <?= $form->field($model, 'upload_image')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

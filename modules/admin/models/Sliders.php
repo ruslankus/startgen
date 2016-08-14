@@ -2,6 +2,8 @@
 
 namespace app\modules\admin\models;
 
+
+use yii\web\UploadedFile;
 use Yii;
 
 /**
@@ -32,7 +34,9 @@ class Sliders extends \yii\db\ActiveRecord
         return [
             [['link'], 'integer'],
             [['label', 'link_value', 'img'], 'string', 'max' => 255],
-            [['upload_image'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['upload_image'], 'image', 'extensions' => 'jpg', 'maxWidth' => 2200, 'minWidth' => 2000,
+                'maxHeight' => 810, 'minHeight' => 795
+            ]
         ];
     }
 
@@ -49,5 +53,37 @@ class Sliders extends \yii\db\ActiveRecord
             'img' => 'Img',
             'upload_image' => "Upload Image"
         ];
+    }
+
+
+    public function getContent()
+    {
+        return $this->hasMany(SlidersContent::className(),['slide_id' => 'id']);
+    }
+
+
+    public function upload()
+    {
+        if ($this->validate()) {
+
+            $image_name = uniqid() . "." .$this->upload_image->extension;
+
+            $this->upload_image->saveAs("images/sliders/" . $image_name);
+
+            //checking old file
+            if (!empty($this->img)){
+
+                $old_file_path = Yii::getAlias('@webroot').DIRECTORY_SEPARATOR."images/sliders"
+                    .DIRECTORY_SEPARATOR . $this->img;
+
+                @unlink($old_file_path);
+            }
+
+            $this->img = $image_name;
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }

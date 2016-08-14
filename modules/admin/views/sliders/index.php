@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'img',
                 'value' => function($data)
                 {
-                    return Html::img("@web/images/{$data->img }", ['width' => 300]);
+                    return Html::img("@web/images/sliders/{$data->img }", ['width' => 300]);
                 },
                 'format' => 'html'
             ],
