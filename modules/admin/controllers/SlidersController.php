@@ -75,8 +75,25 @@ class SlidersController extends Controller
     {
         $model = new Sliders();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+
+            //upload file if exist
+            $model->upload_image = UploadedFile::getInstance($model, 'upload_image');
+
+            if(!empty($model->upload_image)) {
+                //saving file
+                if ($model->upload()) {
+                    $model->upload_image = null;
+                }
+
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+
+            }
+
+            $model->addError('upload_image',"Image is required");
+            return $this->render('create', compact('model'));
+
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -146,13 +163,24 @@ class SlidersController extends Controller
     }
 
 
-
+    /**
+     * Create trnslation for current slide
+     * @return string|\yii\web\Response
+     */
     public function actionContentCreate()
     {
 
         $model = new SlidersContent();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            //clear slides cache
+            $lang = Languages::findOne($model->lang_id);
+            $cache_name = "sliders_".$lang->prefix;
+            Yii::$app->cache->delete($cache_name);
+
+            Yii::$app->session->setFlash('success',"Content for {$lang->name} created");
+
             return $this->redirect(['view', 'id' => $model->slide_id]);
         } else {
 
@@ -166,6 +194,10 @@ class SlidersController extends Controller
     }
 
 
+    /**
+     * Edit translation for current slide
+     * @return string|\yii\web\Response
+     */
     public function actionContentEdit()
     {
 
@@ -178,6 +210,14 @@ class SlidersController extends Controller
             ->one();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            //clear slides cache
+            $lang = Languages::findOne($model->lang_id);
+            $cache_name = "sliders_".$lang->prefix;
+            Yii::$app->cache->delete($cache_name);
+
+            Yii::$app->session->setFlash('success',"Content for {$lang->name} updated");
+
             return $this->redirect(['view', 'id' => $model->slide_id]);
         } else {
 

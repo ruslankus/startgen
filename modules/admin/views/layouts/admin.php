@@ -80,17 +80,14 @@ AdminAsset::register($this);
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <p style="padding: 80px">Copyright © MyWebsite. All rights reserved.</p>
+                    <p style="padding: 80px">prophp &copy; <?= date('Y')?></p>
                 </div>
             </div>
         </div>
     </footer>
     <!-- / FOOTER -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.js"></script>
+
 
     <?php $this->endBody() ?>
     </body>

@@ -33,6 +33,7 @@ class Sliders extends \yii\db\ActiveRecord
     {
         return [
             [['link'], 'integer'],
+            [['label'], 'required' ],
             [['label', 'link_value', 'img'], 'string', 'max' => 255],
             [['upload_image'], 'image', 'extensions' => 'jpg', 'maxWidth' => 2200, 'minWidth' => 2000,
                 'maxHeight' => 810, 'minHeight' => 795
