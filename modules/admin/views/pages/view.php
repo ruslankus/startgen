@@ -6,18 +6,18 @@ use app\modules\admin\models\Languages;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Sliders */
+/* @var $model app\modules\admin\models\Pages */
 
 $this->title = $model->label;
-$this->params['breadcrumbs'][] = ['label' => 'Sliders', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
-$slide_content_map;
+$pages_seo_map;
 
 $lang_map = Languages::getLangMap();
 
 ?>
-<div class="sliders-view">
+<div class="pages-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -37,67 +37,66 @@ $lang_map = Languages::getLangMap();
         'attributes' => [
             'id',
             'label',
-            'link',
-            'link_value',
-            [
-                'attribute' =>'img',
-                'value' => Html::img("@web/images/sliders/{$model->img }", ['width' => 700]),
-                'format' => 'html'
-            ],
-
+            'main',
+            'order',
         ],
     ]) ?>
 
-
     <div>
-                <h3>Slider content</h3>
+        <h3>SEO page content</h3>
 
-                <table class="table table-bordered">
-                    <thead>
-                    <?php foreach ($lang_map as $lng):?>
+        <table class="table table-bordered">
+            <thead>
+            <?php foreach ($lang_map as $lng):?>
 
-                        <th class="text-center"><?= $lng['name']?></th>
+                <th class="text-center"><?= $lng['name']?></th>
 
-                    <?php endforeach;  ?>
-                    </thead>
+            <?php endforeach;  ?>
+            </thead>
 
             <tbody>
-                <tr>
+            <tr>
                 <?php foreach ($lang_map as $id => $lng):?>
                     <td>
-                        <?php if(!empty($slide_content_map[$id])):
-                            $content =  $slide_content_map[$id];
-                        ?>
+                        <?php if(!empty($pages_seo_map[$id])):
+                            $content =  $pages_seo_map[$id];
+                            ?>
                             <p>
                                 <strong>Title:</strong>
                                 <?= $content['title']; ?>
                             </p>
 
                             <p>
-                            <strong>Text:</strong>
-                            <?= $content['text']; ?>
+                                <strong>Keywords:</strong>
+                                <?= $content['keywords']; ?>
                             </p>
+
+                            <p>
+                                <strong>Description:</strong>
+                                <?= $content['description']; ?>
+                            </p>
+
                             <div class="text-center">
-                                <a href="<?= Url::to(["/admin/sliders/content-edit", 'lang_id' => $id,
-                                    'slide_id' => $model->id])?>" class="btn btn-xs btn-info">
+                                <a href="<?= Url::to(["/admin/pages/seo-edit", 'lang_id' => $id,
+                                    'page_id' => $model->id])?>" class="btn btn-xs btn-info">
                                     Edit
                                 </a>
                             </div>
                         <?php else:?>
                             <div class="text-center">
-                                <a href="<?= Url::to(['/admin/sliders/content-create','lang_id' => $id,
-                                    'slide_id' => $model->id ])?>" class="btn btn-success">
+                                <a href="<?= Url::to(['/admin/pages/seo-create','lang_id' => $id,
+                                    'page_id' => $model->id ])?>" class="btn btn-success">
                                     Create
                                 </a>
                             </div>
                         <?php endif; ?>
                     </td>
                 <?php endforeach; ?>
-                </tr>
+            </tr>
             </tbody>
 
-        </table>
 
+        </table>
     </div>
 
 </div>

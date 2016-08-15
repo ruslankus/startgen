@@ -17,6 +17,31 @@
                     <a href="<?= Url::to(['/admin/menu'])?>">Menu structure</a>
                 </li>
 
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">
+                        Pages
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="<?= Url::to(['/admin/pages']);?>">
+                                Pages list
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Pages seo
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="">
+                                Pages block list
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">
@@ -52,10 +77,7 @@
                     </ul>
                 </li>
 
-                <li>
-                    <a href="<?= Url::to(['/admin/languages'])?>">Languages</a>
-                </li
-                >
+
                 <li><a href="#">Users</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >

@@ -4,6 +4,7 @@ namespace app\modules\admin;
 
 
 use yii\filters\AccessControl;
+use Yii;
 
 /**
  * admin module definition class
@@ -22,6 +23,7 @@ class Admin extends \yii\base\Module
     {
         parent::init();
 
+        Yii::$app->language = 'ru_RU';
         // custom initialization code goes here
     }
 
