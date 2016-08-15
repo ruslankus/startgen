@@ -29,7 +29,11 @@
                                 Sliders
                             </a>
                         </li>
-                        <li><a href="#">Healines</a></li>
+                        <li>
+                            <a href="<?= Url::to(['/admin/headline'])?>">
+                                Healines
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

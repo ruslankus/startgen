@@ -2,6 +2,8 @@
 
 namespace  app\components\routers;
 
+use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Request;
 use app\models\Languages;
 
@@ -20,6 +22,16 @@ class LangRequest extends Request
             //no main page
             $lang_url = !empty($url_list[1]) ? $url_list[1] : null;
 
+            //checking aviable languages
+            /*
+            if(!empty($lang_url)){
+                if(false === Languages::checkPrefix($lang_url)){
+                    Languages::setDefaultLanguage();
+                    throw new HttpException(404, 'Wrong prefix');
+                }
+            }
+            */
+
             Languages::setCurrentLang($lang_url);
 
             /*if( $lang_url !== null && $lang_url === Languages::getCurrentLanguage()['url'] &&
@@ -27,6 +39,7 @@ class LangRequest extends Request
             {
                 $this->_lang_url = substr($this->_lang_url, strlen(Languages::getCurrentLanguage()['url'])+1);
             }*/
+
 
         }
 

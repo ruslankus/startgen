@@ -11,7 +11,9 @@ class LangWidget extends Widget
     public function run()
     {
         $current_lang_array = Languages::getCurrentLanguage();
-        $langs_array = Languages::find()->asArray()->all();
+        $langs_array = Languages::find()
+            ->where(['active' => true])
+            ->asArray()->all();
 
         return $this->render('lang', compact('current_lang_array', 'langs_array'));
     }

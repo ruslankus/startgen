@@ -22,6 +22,9 @@ class Languages extends \yii\db\ActiveRecord
     // current language
     static $current = [];
 
+
+    static private $_prefics = [];
+
     /**
      * @inheritdoc
      */
@@ -73,6 +76,16 @@ class Languages extends \yii\db\ActiveRecord
     }
 
 
+    public static function setDefaultLanguage()
+    {
+        self::$current = self::getDefaultLanguage()->toArray();
+        //setting locale
+        Yii::$app->language = self::$current['locale'];
+        //setting data to session
+        Yii::$app->session->set('current_language', self::$current);
+    }
+
+
 
     public static function getDefaultLanguage()
     {
@@ -90,6 +103,26 @@ class Languages extends \yii\db\ActiveRecord
             return !empty($language)? $language : null;
         }
     }
+
+    protected static function setPrefics()
+    {
+        $lang_array = self::find()
+            ->where(['active' => true])
+            ->asArray()
+            ->all();
+
+        self::$_prefics = array_column($lang_array, 'prefix');
+    }
+
+
+    public static function checkPrefix($prefix){
+        if(empty(self::$_prefics)){
+            self::setPrefics();
+        }
+
+        return in_array($prefix, self::$_prefics);
+    }
+
 
 
 
