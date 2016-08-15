@@ -5,23 +5,20 @@ namespace app\modules\admin\models;
 use Yii;
 
 /**
- * This is the model class for table "pages".
+ * This is the model class for table "pages_blocks_types".
  *
  * @property integer $id
  * @property string $label
- * @property integer $main
- * @property integer $order
+ * @property string $name
  */
-class Pages extends \yii\db\ActiveRecord
+class PagesBlocksTypes extends \yii\db\ActiveRecord
 {
-
-    public $blocks;
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'pages';
+        return 'pages_blocks_types';
     }
 
     /**
@@ -30,13 +27,9 @@ class Pages extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['main', 'order'], 'integer'],
-            [['label'], 'string', 'max' => 255],
+            [['label', 'name'], 'string', 'max' => 255],
         ];
     }
-
-
-
 
     /**
      * @inheritdoc
@@ -46,9 +39,7 @@ class Pages extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'label' => 'Label',
-            'main' => 'Main',
-            'order' => 'Order',
-            'blocks' => "Page blocks"
+            'name' => 'Name',
         ];
     }
 }

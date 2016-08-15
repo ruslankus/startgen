@@ -32,7 +32,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
 
             ],
-            'order',
+            //'order',
+            [
+                'attribute' => 'blocks',
+                'value' => function($data)
+                {
+                    return Html::a("Pages blocks",['page-blocks', 'id' => $data->id],["class" => "btn btn-xs btn-info"]);
+                },
+                'format' => 'html'
+            ],
 
             [
                 'class' => 'yii\grid\ActionColumn',
@@ -44,7 +52,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'delete' => function()
                     {
                         return false;
-                    }
+                    },
+
+
                 ]
             ],
         ],

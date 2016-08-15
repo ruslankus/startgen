@@ -2,6 +2,8 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\PagesBlocks;
+use app\modules\admin\models\PagesBlocksTrl;
 use app\modules\admin\models\PagesSeoTrl;
 use Yii;
 use app\modules\admin\models\Pages;
@@ -160,5 +162,44 @@ class PagesController extends Controller
 
             return $this->render('update-seo', compact('model', 'lang_id', 'page_id','lang'));
         }
+    }
+
+
+    public function actionPageBlocks()
+    {
+        $page_id = (int)Yii::$app->request->get('id');
+
+        $page = Pages::findOne($page_id);
+
+        $dataProvider = new ActiveDataProvider([
+            'query' =>  PagesBlocks::find()
+                ->with('blockType')
+                ->where(['page_id' => $page_id])
+
+
+        ]);
+
+        return $this->render('page-blocks', compact("dataProvider", 'page'));
+
+    }
+
+
+    public function actionViewPageBlock()
+    {
+        $block_id = Yii::$app->request->get('block_id');
+
+        $block_content_trl = PagesBlocksTrl::find()
+            ->where(['block_id' => $block_id])
+            ->asArray()
+            ->all();
+
+        $block_content_map = array_column($block_content_trl,null,'lang_id');
+
+        $model = PagesBlocks::find()
+            ->with('blockType')
+            ->where(['id' => $block_id])
+            ->one();
+
+        return $this->render('page-block-view', compact('model','block_content_map'));
     }
 }
