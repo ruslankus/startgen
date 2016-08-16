@@ -111,7 +111,8 @@ class PageController extends AppController
 
     private function _getHtml(array $block)
     {
-        return $this->renderPartial('partials/_content');
+
+        return $this->renderPartial('partials/_content', compact('block'));
     }
 
 

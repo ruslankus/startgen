@@ -76,15 +76,15 @@ $lang_map = Languages::getLangMap();
 
 
                             <div class="text-center">
-                                <a href="<?= Url::to(["/admin/pages/seo-edit", 'lang_id' => $id,
-                                    'page_id' => $model->id])?>" class="btn btn-xs btn-info">
+                                <a href="<?= Url::to(["/admin/pages/edit-block-content", 'lang_id' => $id,
+                                    'block_id' => $model->id])?>" class="btn btn-xs btn-info">
                                     Edit
                                 </a>
                             </div>
                         <?php else:?>
                             <div class="text-center">
-                                <a href="<?= Url::to(['/admin/pages/seo-create','lang_id' => $id,
-                                    'page_id' => $model->id ])?>" class="btn btn-success">
+                                <a href="<?= Url::to(['/admin/pages/create-block-content','lang_id' => $id,
+                                    'block_id' => $model->id ])?>" class="btn btn-success">
                                     Create
                                 </a>
                             </div>

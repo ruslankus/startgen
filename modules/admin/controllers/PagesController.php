@@ -202,4 +202,27 @@ class PagesController extends Controller
 
         return $this->render('page-block-view', compact('model','block_content_map'));
     }
+
+
+    public function actionEditBlockContent()
+    {
+        $block_id = Yii::$app->request->get('block_id');
+        $lang_id = Yii::$app->request->get('lang_id');
+        $lang = Languages::findOne($lang_id);
+
+        $model = PagesBlocksTrl::find()
+            ->with('block')
+            ->where(['lang_id' => $lang_id, 'block_id' => $block_id])
+            ->one();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            Yii::$app->session->setFlash('success',"Content for {$lang->name} updated");
+
+            return $this->redirect(['view-page-block', 'block_id' => $model->block_id]);
+        } else {
+
+            return $this->render('page-block-content-edit', compact('model', 'lang_id', 'block_id','lang'));
+        }
+    }
 }

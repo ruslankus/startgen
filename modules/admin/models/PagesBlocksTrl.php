@@ -35,6 +35,13 @@ class PagesBlocksTrl extends \yii\db\ActiveRecord
         ];
     }
 
+
+    public function getBlock()
+    {
+        return $this->hasOne(PagesBlocks::className(),['id' => 'block_id']);
+    }
+
+
     /**
      * @inheritdoc
      */
