@@ -6,7 +6,7 @@
     use app\models\Languages;
     use app\models\Labels;
 
-    $category_content = array_shift($category['content']);
+    $category_content;
     $lang_prefix = Languages::getCurrentLanguage()['prefix'];
 ?>
 <div class="services category">
@@ -32,16 +32,8 @@
 
     </div>
     <h4><?= $category_content['title'] ?></h4><h5> </h5><div class="clearfix"> </div>
-    <div>
-        <p>
-            Parduodame naujus STARTERIUS, GENERATORIUS 12V ir 24V visų tipų automobiliams - lengviesiems
-            automobiliams, mikroautobusams, autobusams, krautuvams, keltuvams, greideriams,
-            ekskavatoriams, traktoriams, buldozeriams, sunkvežimiams, kranams, vilkikams, valtims,
-            motorinėms valtims, laivams.
-        </p>
 
-
-    </div>
+    <div><?= $category_content['text'] ?></div>
 
 
     <div class="section group">

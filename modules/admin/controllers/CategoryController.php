@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use app\modules\admin\models\CategoryContent;
+use app\modules\admin\models\Languages;
 
 /**
  * CategoryController implements the CRUD actions for Category model.
@@ -52,9 +54,18 @@ class CategoryController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+
+        $category_content_map = [];
+        $model = $this->findModel($id);
+
+        $category_content = CategoryContent::find()
+            ->where(['category_id' => $id])
+            ->asArray()->all();
+
+        $category_content_map = array_column($category_content, null, 'lang_id');
+
+        return $this->render('view', compact('model', 'category_content_map'));
+
     }
 
     /**
@@ -155,6 +166,52 @@ class CategoryController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+
+
+    public function actionContentCreate()
+    {
+        $lang_id = (int)Yii::$app->request->get('lang_id');
+        $category_id = (int)Yii::$app->request->get('category_id');
+        $lang = Languages::findOne($lang_id);
+
+        $category = Category::findOne($category_id);
+
+        $model = new CategoryContent();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            Yii::$app->session->setFlash('success',"Content for {$lang->name} was created");
+
+            return $this->redirect(['view', 'id' => $model->category_id]);
+        } else {
+
+            return $this->render('content-create', compact('model', 'lang', 'category'));
+        }
+    }
+
+
+
+    public function actionContentEdit()
+    {
+        $lang_id = (int)Yii::$app->request->get('lang_id');
+        $category_id = (int)Yii::$app->request->get('category_id');
+        $lang = Languages::findOne($lang_id);
+
+        $model = CategoryContent::find()
+            ->where(['lang_id' => $lang_id, 'category_id' => $category_id])
+            ->one();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            Yii::$app->session->setFlash('success',"Content for {$lang->name} updated");
+
+            return $this->redirect(['view', 'id' => $model->category_id]);
+        } else {
+
+            return $this->render('content-update', compact('model', 'lang', 'category_id'));
         }
     }
 }

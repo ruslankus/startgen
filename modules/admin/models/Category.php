@@ -84,6 +84,7 @@ class Category extends \yii\db\ActiveRecord
     }
 
 
+
     public function deleteImage()
     {
         //checking old file

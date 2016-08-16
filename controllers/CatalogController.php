@@ -46,6 +46,10 @@ class CatalogController extends AppController
             ->asArray()
             ->one();
 
+        $category_content = array_shift($category['content']);
+
+        $this->setMeta($category_content['title_seo'],$category_content['keywords'], $category_content['description_seo']);
+
         $query = Products::find()->with('content')
             ->where(['category_id' => $category_id]);
 
@@ -55,7 +59,7 @@ class CatalogController extends AppController
             "pageSizeParam" => false ]);
         $products = $query->offset($pages->offset)->limit($pages->limit)->all();
 
-        return $this->render('category', compact('products', 'pages', 'category'));
+        return $this->render('category', compact('products', 'pages', 'category', 'category_content'));
     }
 
 }

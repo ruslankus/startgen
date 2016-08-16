@@ -74,6 +74,10 @@
                     <ul class="dropdown-menu" role="menu">
 
                         <li>
+                            <a href="<?= Url::to(['/admin/category'])?>">Category list</a>
+                        </li>
+
+                        <li>
                             <a href="<?= Url::to(['/admin/products'])?>">Product list</a>
                         </li>
                     </ul>
