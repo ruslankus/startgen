@@ -38,9 +38,14 @@ the EU will open up new possibilities for successful partnerships and expansion 
 
              ''],
 
-
-
-            [2, 3, 'Kontentas', ''],
+            [2, 3, "<p>UAB STARTER GENERATOR įmonė,įkurta 1997 m. Vilniuje. Mūsų įmonė pradėjo savo veiklą, kaip 
+ automobilių dalių parduotuvė. Vėliau tapome viena iš sėkmingiausią visos automobilių starterius ir generatorius 
+ remontuojanti įmonė. Pas mus  dirba aukštos kvalifikacijos darbuotojai nuo įmonės įsikūrimo pradžios. Šiuo metu mųsū 
+ kompanija vykdo ne tik automobilių dalių pardavimą, bet ir automobilių įrenginių,  starterių, generatorių remontą.</p>
+ <p>Mūsų įmonė jau ilga laika sėkmingai bendradarbiauja su SGR company. Nors mūsų veikla buvo daugiausiai  orentuota į 
+ vietini rinka, mes tikimės, kad Lietuvos narystė ES, atvers naujas galimybes sėkmingai partnerystei ir veiklos plėtrai
+  ne tik ES šalyse, bet ir Rusijoje.</p>
+  <p><strong>Nuo 2007 metų mes atstovaujame SGR žėnkla, Lietuvoje ir Baltijos šalyse.</strong></p>", ''],
             [4, 1, 'Content',''],
             [4, 2, 'Контент', ''],
             [4, 3, 'Kontentas', ''],
