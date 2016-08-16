@@ -2,28 +2,26 @@
 
 namespace app\modules\admin\models;
 
-
-use yii\web\UploadedFile;
 use Yii;
 
 /**
- * This is the model class for table "sliders".
+ * This is the model class for table "category".
  *
  * @property integer $id
  * @property string $label
- * @property integer $link
- * @property string $link_value
+ * @property integer $parent_id
  * @property string $img
  */
-class Sliders extends \yii\db\ActiveRecord
+class Category extends \yii\db\ActiveRecord
 {
     public $upload_image;
+
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'sliders';
+        return 'category';
     }
 
     /**
@@ -32,13 +30,17 @@ class Sliders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['link'], 'integer'],
-            [['label'], 'required' ],
-            [['label', 'link_value', 'img'], 'string', 'max' => 255],
-            [['upload_image'], 'image', 'extensions' => 'jpg', 'maxWidth' => 2200, 'minWidth' => 2000,
-                'maxHeight' => 810, 'minHeight' => 795
-            ]
+            [['label'], 'required'],
+            [['parent_id'], 'integer'],
+            [['label', 'img'], 'string', 'max' => 255],
+            [['upload_image'], 'image', 'extensions' => 'jpg']
         ];
+    }
+
+
+    public function getParent()
+    {
+        return $this->hasOne(Category::className(),['id' => 'parent_id']);
     }
 
     /**
@@ -49,17 +51,10 @@ class Sliders extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'label' => 'Label',
-            'link' => 'Link',
-            'link_value' => 'Link Value',
+            'parent_id' => 'Parent category',
             'img' => 'Img',
             'upload_image' => "Upload Image"
         ];
-    }
-
-
-    public function getContent()
-    {
-        return $this->hasMany(SlidersContent::className(),['slide_id' => 'id']);
     }
 
 
@@ -69,12 +64,12 @@ class Sliders extends \yii\db\ActiveRecord
 
             $image_name = uniqid() . "." .$this->upload_image->extension;
 
-            $this->upload_image->saveAs("images/sliders/" . $image_name);
+            $this->upload_image->saveAs("images/product-category/" . $image_name);
 
             //checking old file
             if (!empty($this->img)){
 
-                $old_file_path = Yii::getAlias('@webroot').DIRECTORY_SEPARATOR."images/sliders"
+                $old_file_path = Yii::getAlias('@webroot').DIRECTORY_SEPARATOR."images/product-category"
                     .DIRECTORY_SEPARATOR . $this->img;
 
                 @unlink($old_file_path);

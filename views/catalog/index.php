@@ -23,7 +23,7 @@
         <div class="col-md-6 listview_1_of_2">
             <div class="images_1_of_2">
                 <div class="listimg listimg_2_of_1">
-                    <?= Html::img("@web/images/{$item['img']}", ['alt' => $item_content['title']]) ?>
+                    <?= Html::img("@web/images/product-category/{$item['img']}", ['alt' => $item_content['title']]) ?>
                 </div>
                 <div class="text list_2_of_1">
                     <h3><?= $item_content['title']?></h3>
