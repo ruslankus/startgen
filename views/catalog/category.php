@@ -5,6 +5,7 @@
     use yii\widgets\Breadcrumbs;
     use app\models\Languages;
     use app\models\Labels;
+    use yii\helpers\Url;
 
     $category_content;
     $lang_prefix = Languages::getCurrentLanguage()['prefix'];
@@ -41,18 +42,34 @@
 
             $thumb_link = "/images/products/{$prd['old_id']}/thumb_{$prd['img']}";
             $original_link = "/images/products/{$prd['old_id']}/original_{$prd['img']}";
+            $content = array_shift($prd['content']);
 
         ?>
 
             <div class="col-xs-12 category_list_view">
                 <div class="category__list_images clearfix">
                     <div class="listimg listimg_2_of_1">
-                        <a href="<?= $original_link?>" data-lightbox="<?= $prd['name'] ?>" >
-                            <?= Html::img("@web{$thumb_link}", ['alt' => $prd['name']])  ?>
-                        </a>
+                        <?php if(!empty($content)): ?>
+                            <a href="<?= Url::to(["product", "id" => $content['product_id']])?>"   >
+                                <?= Html::img("@web{$thumb_link}", ['alt' => $prd['name']])  ?>
+                            </a>
+                        <?php else: ?>
+
+                            <a href="<?= $original_link?>" data-lightbox="<?= $prd['name'] ?>" >
+                                <?= Html::img("@web{$thumb_link}", ['alt' => $prd['name']])  ?>
+                            </a>
+                        <?php endif;?>
                     </div>
                     <div class="text list_2_of_1">
-                        <h3><?= $prd['name']?> </h3>
+                        <h3>
+                            <?php if(!empty($content)): ?>
+                                <a href="<?= Url::to(["product", "id" => $content['product_id']])?>"   >
+                                    <?= $prd['name']?>
+                                </a>
+                            <?php else:?>
+                                <?= $prd['name']?>
+                            <?php endif;?>
+                        </h3>
                         <p><?= $prd['text']?></p>
 
                     </div>

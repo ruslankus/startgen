@@ -7,6 +7,7 @@
     use app\components\widgets\SliderWidget;
     use app\components\widgets\FooterWidget;
 
+
     FrontAsset::register($this);
 ?>
 

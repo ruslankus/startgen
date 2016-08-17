@@ -57,9 +57,24 @@ class CatalogController extends AppController
 
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 15, 'forcePageParam' => false,
             "pageSizeParam" => false ]);
-        $products = $query->offset($pages->offset)->limit($pages->limit)->all();
+        $products = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->asArray()
+            ->all();
 
         return $this->render('category', compact('products', 'pages', 'category', 'category_content'));
+    }
+
+
+    public function actionProduct()
+    {
+        $product_id = Yii::$app->request->get('id');
+
+        $product = Products::find()
+            ->where(['id' => $product_id])
+            ->one();
+
+        return $this->render('product', compact('product'));
     }
 
 }

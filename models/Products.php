@@ -59,12 +59,27 @@ class Products extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(),['id' => 'category_id']);
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */
     public function getContent()
     {
         return $this->hasMany(ProductContent::className(), ['product_id' => 'id'])
+            ->where(['lang_id' => Languages::getCurrentLngId()]);
+    }
+
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOneContent()
+    {
+        return $this->hasOne(ProductContent::className(), ['product_id' => 'id'])
             ->where(['lang_id' => Languages::getCurrentLngId()]);
     }
 }
