@@ -17,6 +17,9 @@ $product_content_map;
 
 $lang_map = Languages::getLangMap();
 
+$image_path = !(empty($model->old_id)) ? "@web/images/products/{$model->old_id}/"
+    : "@web/images/products/new/";
+
 ?>
 
 <div class="products-view">
@@ -46,8 +49,13 @@ $lang_map = Languages::getLangMap();
             'text2:ntext',
             'category_id',
             'category_name',
-            'img',
-            'img_type',
+            [
+                'attribute' => 'img',
+                'value' => !empty($model->img) ? Html::img("{$image_path}thumb_{$model->img}",
+                    ['width' => 100]) : "" ,
+                'format' => 'html'
+            ]
+
         ],
     ]) ?>
 

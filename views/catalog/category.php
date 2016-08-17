@@ -40,8 +40,11 @@
     <div class="section group">
         <?php foreach ($products as $prd):
 
-            $thumb_link = "/images/products/{$prd['old_id']}/thumb_{$prd['img']}";
-            $original_link = "/images/products/{$prd['old_id']}/original_{$prd['img']}";
+            $image_path = !empty($prd['old_id'])? "/images/products/{$prd['old_id']}/"
+                : "/images/products/new/" ;
+
+            $thumb_link = "{$image_path}thumb_{$prd['img']}";
+            $original_link = "{$image_path}original_{$prd['img']}";
             $content = array_shift($prd['content']);
 
         ?>

@@ -42,8 +42,10 @@ $this->params['breadcrumbs'][] = $this->title;
                'attribute' => 'img',
                 'value' => function($data)
                 {
+                    $image_path = !(empty($data->old_id)) ? "@web/images/products/{$data->old_id}/"
+                        : "@web/images/products/new/";
 
-                    return !empty($data->img) ? Html::img("@web/images/products/{$data->old_id}/thumb_{$data->img}",
+                    return !empty($data->img) ? Html::img("{$image_path}thumb_{$data->img}",
                         ['width' => 80]) : "";
 
                 },

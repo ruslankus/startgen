@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\Category;
 use Yii;
 use app\modules\admin\models\Products;
 use yii\data\ActiveDataProvider;
@@ -10,6 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\modules\admin\models\ProductContent;
 use app\modules\admin\models\Languages;
+use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Products model.
@@ -75,12 +77,39 @@ class ProductController extends Controller
     {
         $model = new Products();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) ) {
+
+            //upload file if exist
+            $model->upload_image = UploadedFile::getInstance($model, 'upload_image');
+
+            if(!empty($model->upload_image)) {
+                //saving file
+                if ($model->upload()) {
+                    $model->upload_image = null;
+                }
+
+                $model->save();
+                Yii::$app->session->setFlash('success',"Product  {$model->name} was created");
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            $model->addError('upload_image',"Image is required");
+            return $this->render('create', compact('model'));
+
         } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+
+            $category = Category::find()
+                ->where(['not in', 'id', 1])
+                ->asArray()
+                ->all();
+
+            array_unshift($category,['id' => 0, 'label' => 'Select category']);
+
+            $category_map = array_column($category,'label','id');
+
+
+            return $this->render('create', compact('model','category_map'));
+
         }
     }
 
@@ -94,14 +123,35 @@ class ProductController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
 
+            //upload file if exist
+            $model->upload_image = UploadedFile::getInstance($model, 'upload_image');
+
+            if(!empty($model->upload_image)) {
+                //saving file
+                if ($model->upload()) {
+                    $model->upload_image = null;
+                }
+
+            }
+
+            $model->save();
             Yii::$app->session->setFlash('success',"Product {$model->name} was updated");
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+
+            $category = Category::find()
+                ->where(['not in', 'id', 1])
+                ->asArray()
+                ->all();
+
+            array_unshift($category,['id' => 0, 'label' => 'Select category']);
+
+            $category_map = array_column($category,'label','id');
+
+
+            return $this->render('update', compact('model','category_map'));
         }
     }
 
