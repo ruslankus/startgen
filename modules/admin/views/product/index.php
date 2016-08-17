@@ -25,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'old_id',
             'name',
             'part_number',
+            'catalog_number',
             //'text:ntext',
             //'text2:ntext',
 

@@ -18,6 +18,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'part_number')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'catalog_number')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'text2')->textarea(['rows' => 6]) ?>

@@ -10,6 +10,8 @@ use Yii;
  * @property integer $id
  * @property integer $old_id
  * @property string $name
+ * @property string $part_number
+ * @property string $catalog_number
  * @property string $text
  * @property string $text2
  * @property integer $category_id
@@ -37,7 +39,7 @@ class Products extends \yii\db\ActiveRecord
         return [
             [['old_id', 'category_id'], 'integer'],
             [['text', 'text2'], 'string'],
-            [['name','part_number', 'category_name', 'img', 'img_type'], 'string', 'max' => 255],
+            [['name','part_number',"catalog_number" ,'category_name', 'img', 'img_type'], 'string', 'max' => 255],
         ];
     }
 
@@ -51,6 +53,7 @@ class Products extends \yii\db\ActiveRecord
             'old_id' => 'Old ID',
             'name' => 'Name',
             'part_number' => 'Part Number',
+            'catalog_number' => "Catalog Number",
             'text' => 'Text',
             'text2' => 'Text2',
             'category_id' => 'Category ID',

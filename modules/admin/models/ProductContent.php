@@ -11,6 +11,7 @@ use Yii;
  * @property integer $product_id
  * @property integer $lang_id
  * @property string $product_title
+ * @property string $product_snippet
  * @property string $product_description
  * @property string $product_text
  *
@@ -34,11 +35,14 @@ class ProductContent extends \yii\db\ActiveRecord
         return [
             [['product_id', 'lang_id'], 'required'],
             [['product_id', 'lang_id'], 'integer'],
-            [['product_description', 'product_text'], 'string'],
+            [['product_snippet', 'product_description', 'product_text'], 'string'],
             [['product_title'], 'string', 'max' => 255],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Products::className(), 'targetAttribute' => ['product_id' => 'id']],
         ];
     }
+
+
+
 
     /**
      * @inheritdoc
@@ -50,6 +54,7 @@ class ProductContent extends \yii\db\ActiveRecord
             'product_id' => 'Product ID',
             'lang_id' => 'Lang ID',
             'product_title' => 'Product Title',
+            'product_snippet' => 'Product Snippet',
             'product_description' => 'Product Description',
             'product_text' => 'Product Text',
         ];

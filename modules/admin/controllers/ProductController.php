@@ -8,6 +8,8 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\modules\admin\models\ProductContent;
+use app\modules\admin\models\Languages;
 
 /**
  * ProductController implements the CRUD actions for Products model.
@@ -51,9 +53,17 @@ class ProductController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        $product_content_map = [];
+        $model = $this->findModel($id);
+
+        $product_content = ProductContent::find()
+            ->where(['product_id' => $id])
+            ->asArray()->all();
+
+        $product_content_map = array_column($product_content, null, 'lang_id');
+
+        return $this->render('view', compact('model', 'product_content_map'));
+
     }
 
     /**
@@ -123,6 +133,27 @@ class ProductController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
+    public function actionContentCreate()
+    {
+        $lang_id = (int)Yii::$app->request->get('lang_id');
+        $product_id = (int)Yii::$app->request->get('product_id');
+        $lang = Languages::findOne($lang_id);
+        $product = Products::findOne($product_id);
+        $model = new ProductContent();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            Yii::$app->session->setFlash('success',"Content for {$lang->name} was created");
+
+            return $this->redirect(['view', 'id' => $model->product_id]);
+        } else {
+
+            return $this->render('content-create', compact('model', 'lang', 'product'));
+        }
+    }
+
 
 
     public function actionContentEdit()
