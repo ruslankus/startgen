@@ -78,7 +78,7 @@
                         </li>
 
                         <li>
-                            <a href="<?= Url::to(['/admin/products'])?>">Product list</a>
+                            <a href="<?= Url::to(['/admin/product'])?>">Product list</a>
                         </li>
                     </ul>
                 </li>
