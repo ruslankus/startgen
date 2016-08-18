@@ -53,7 +53,8 @@
                 <div class="category__list_images clearfix">
                     <div class="listimg listimg_2_of_1">
                         <?php if(!empty($content)): ?>
-                            <a href="<?= Url::to(["product", "id" => $content['product_id']])?>"   >
+                            <a href="<?= Url::to(["product", "id" => $content['product_id'] ,
+                                'language' => $lang_prefix ])?>"   >
                                 <?= Html::img("@web{$thumb_link}", ['alt' => $prd['name']])  ?>
                             </a>
                         <?php else: ?>
@@ -66,7 +67,8 @@
                     <div class="text list_2_of_1">
                         <h3>
                             <?php if(!empty($content)): ?>
-                                <a href="<?= Url::to(["product", "id" => $content['product_id']])?>"   >
+                                <a href="<?= Url::to(["product", "id" => $content['product_id'],
+                                    'language' => $lang_prefix])?>"   >
                                     <?= $prd['name']?>
                                 </a>
                             <?php else:?>
@@ -81,27 +83,6 @@
             </div>
 
         <?php endforeach; ?>
-
-
-
-
-        <div class="col-xs-12 category_list_view">
-            <div class="category__list_images clearfix">
-                <div class="listimg listimg_2_of_1">
-                    <img src="/images/products/thumb_CS1062.jpg" alt="">
-                </div>
-                <div class="text list_2_of_1">
-                    <h3>
-                        <a href="product_card.html">R1399 </a>
-                    </h3>
-                    <p>BOSCH - SCANIA (24V 5.5KW)</p>
-
-                </div>
-
-            </div>
-        </div>
-
-
 
 
 

@@ -7,6 +7,9 @@ $this->params['breadcrumbs'][] = ['label' => Labels::t('catalog'), 'url' => ['in
 $this->params['breadcrumbs'][] = ['label' => $product->category->content[0]->title, 'url' => ['category', 'id' => $product->category->id]];
 $this->params['breadcrumbs'][] = $product->name;
 
+$image_path = !empty($product->old_id)? "/images/products/{$product->old_id}/"
+    : "/images/products/new/" ;
+
 ?>
 <div class="services category">
 
@@ -24,7 +27,7 @@ $this->params['breadcrumbs'][] = $product->name;
 
     <div class="section product clearfix">
         <div class="img-holder col-xs-12 col-sm-7 col-md-6">
-            <?= Html::img("@web/images/products/{$product->old_id}/original_{$product->img}", ['alt' => $product->name]);?>
+            <?= Html::img("{$image_path}original_{$product->img}", ['alt' => $product->name]);?>
 
 
         </div>

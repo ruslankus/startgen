@@ -126,4 +126,25 @@ class Products extends \yii\db\ActiveRecord
             return false;
         }
     }
+
+
+
+    public function deleteImage()
+    {
+        $image_path = !empty($this->old_id)? Yii::getAlias('@webroot') . "/images/products/{$this->old_id}/"
+            : Yii::getAlias('@webroot') . "/images/products/new/" ;
+
+        //deleting image
+        if (!empty($this->img)){
+
+            $old_file_path = $image_path . "original_".$this->img;
+            $old_file_thumb_path = $image_path . "thumb_".$this->img;
+
+            @unlink($old_file_path);
+            @unlink($old_file_thumb_path);
+        }
+
+        return true;
+
+    }
 }

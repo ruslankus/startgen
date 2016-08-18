@@ -10,6 +10,7 @@ namespace app\controllers;
 
 
 use app\models\Category;
+use app\models\Languages;
 use app\models\Products;
 use yii\data\Pagination;
 use Yii;
@@ -71,8 +72,20 @@ class CatalogController extends AppController
         $product_id = Yii::$app->request->get('id');
 
         $product = Products::find()
+            ->with(['content'])
             ->where(['id' => $product_id])
             ->one();
+
+        //checking product
+        if(empty($product)){
+            return $this->redirect(['index']);
+        }
+        //no translation
+        if(empty($product->content)){
+            $current_lang = Languages::getCurrentLanguage()['prefix'];
+            return $this->redirect(['category', 'id' => $product->category_id,
+                'language' => $current_lang ]);
+        }
 
         return $this->render('product', compact('product'));
     }
