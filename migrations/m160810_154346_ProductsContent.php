@@ -11,6 +11,7 @@ class m160810_154346_ProductsContent extends Migration
             'product_id' => $this->integer()->unsigned()->notNull(),
             'lang_id' => $this->integer()->unsigned()->notNull(),
             'product_title' => $this->string(),
+            'product_snippet' => $this->text(),
             'product_description' => $this->text(),
             'product_text' => $this->text()
 
