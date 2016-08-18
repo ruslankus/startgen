@@ -1,6 +1,9 @@
 <?php
     use yii\helpers\Url;
     use app\models\Labels;
+    use app\models\Languages;
+
+$lang_prefix = Languages::getCurrentLanguage()['prefix'];
 ?>
 <div class="image-slider">
 
@@ -35,7 +38,9 @@
                             <h2><?= $content['title'] ?></h2>
                             <p> <?= $content['text']?> </p>
 
-                            <a href="#" class="book-apm"><?= Labels::t('make appointent') ?></a>
+                            <a href="<?= Url::to(['orders/index', 'language' => $lang_prefix ])?>" class="book-apm">
+                                <?= Labels::t('make appointent') ?>
+                            </a>
                         </div>
                     </div>
                 </div>

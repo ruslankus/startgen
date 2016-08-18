@@ -2,7 +2,14 @@ $(document).ready(function () {
    
     $('.book-apm').click(function () {
 
-        $('#myModal').modal('show');
+        console.log(this);
+
+        var href = $(this).attr('href');
+
+        $('#myModal').load(href, function(){
+            $('#myModal').modal('show');
+        });
+
 
         return false;
     })
