@@ -38,7 +38,8 @@ $lang_prefix = Languages::getCurrentLanguage()['prefix'];
                             <h2><?= $content['title'] ?></h2>
                             <p> <?= $content['text']?> </p>
 
-                            <a href="<?= Url::to(['orders/index', 'language' => $lang_prefix ])?>" class="book-apm">
+                            <a href="<?= Url::to(['orders/index', 'language' => $lang_prefix ])?>"
+                                data-lang="<?= $lang_prefix ?>" class="book-apm">
                                 <?= Labels::t('make appointent') ?>
                             </a>
                         </div>

@@ -20,22 +20,18 @@
             <div class="clearfix">
                 <div class="form-group col-xs-12 col-sm-6">
                     <label for="exampleInputEmail1">Name</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="phone">
+                    <input type="text" class="form-control" id="name" placeholder="Name">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6">
                     <label for="exampleInputEmail1">Phone</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    <input type="phone" class="form-control" id="phone" placeholder="Your phone">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6">
                     <label for="exampleInputEmail1">Data</label>
-                    <?= DatePicker::widget([
-                        'name'  => 'from_date',
-                        'value'  => null,
-                        'language' => 'ru',
-                        'dateFormat' => 'yyyy-MM-dd',
-                    ]); ?>
+                    <input type="date" class="form-control" id="visit-date" placeholder="Booking date">
+
                 </div>
 
 
@@ -62,7 +58,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" id="send">Send</button>
         </div>
 
     </form>

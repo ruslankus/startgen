@@ -16,11 +16,14 @@ class FrontAsset extends AssetBundle
         'css/style.css'
     ];
     public $js = [
+        'js/datepicker-ru.js',
+        'js/datepicker-lt.js',
         'js/lightbox.js',
         'js/common.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
+        'yii\jui\JuiAsset',
         'yii\bootstrap\BootstrapPluginAsset',
     ];
 
