@@ -37,20 +37,20 @@ class m160808_190059_CategoryContent extends Migration
              [3,2,'стартеры детали','стартеры детали', 'стартеры детали seo descr','стартеры детали kewords',
                  'стартеры детали snippet', '' ],
 
-             [3,3,'startertėrai dėtalės','startertėrai dėtalės', 'startertėrai dėtalės seo descr','
-             startertėrai dėtalės kewords', 'startertėrai dėtalės snippet', '' ],
+             [3,3,'starterių dalys','starterių dalys', 'starterių dalys seo descr','
+             starterių dalys kewords', 'starterių dalys snippet', '' ],
 
              [4,1,'alterantors','alterantors','alterantors seo descr','alterantors kewords', 'alterantors snippet', '' ],
              [4,2,'генераторы','генераторы', 'генераторы seo descr','альтернаторы kewords', 'альтернаторы snippet', '' ],
-             [4,3,'alternatoriai','alternatoriai', 'alternatoriai seo descr','alternatoriai kewords', 'alternatoriai snippet', '' ],
+             [4,3,'generatoriai','generatoriai', 'generatoriai seo descr','generatoriai kewords', 'generatoriai snippet', '' ],
 
              [5,1,'alterantors parts','alterantors parts','alterantors parts seo descr','alterantors parts kewords',
                  'alterantors parts snippet', '' ],
 
              [5,2,'генераторы детали','генераторы детали', 'генераторы детали seo descr',
                  'генераторы детали kewords', 'генераторы детали snippet', '' ],
-             [5,3,'alternatoriai dėtalės','alternatoriai dėtalės', 'alternatoriai dėtalės seo descr',
-                 'alternatoriai dėtalės kewords', 'alternatoriai dėtalės snippet', '' ],
+             [5,3,'generatorių dalys','generatorių dalys', 'generatorių dalys seo descr',
+                 'generatorių dalys kewords', 'generatorių dalys snippet', '' ],
 
              [6,1,'others parts','others parts','others parts seo descr','others parts kewords',
                  'others parts snippet', '' ],
