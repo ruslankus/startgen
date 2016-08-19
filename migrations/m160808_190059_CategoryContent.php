@@ -41,24 +41,24 @@ class m160808_190059_CategoryContent extends Migration
              startertėrai dėtalės kewords', 'startertėrai dėtalės snippet', '' ],
 
              [4,1,'alterantors','alterantors','alterantors seo descr','alterantors kewords', 'alterantors snippet', '' ],
-             [4,2,'альтернаторы','альтернаторы', 'альтернаторы seo descr','альтернаторы kewords', 'альтернаторы snippet', '' ],
+             [4,2,'генераторы','генераторы', 'генераторы seo descr','альтернаторы kewords', 'альтернаторы snippet', '' ],
              [4,3,'alternatoriai','alternatoriai', 'alternatoriai seo descr','alternatoriai kewords', 'alternatoriai snippet', '' ],
 
              [5,1,'alterantors parts','alterantors parts','alterantors parts seo descr','alterantors parts kewords',
                  'alterantors parts snippet', '' ],
 
-             [5,2,'альтернаторы детали','альтернаторы детали', 'альтернаторы детали seo descr',
-                 'альтернаторы детали kewords', 'альтернаторы детали snippet', '' ],
+             [5,2,'генераторы детали','генераторы детали', 'генераторы детали seo descr',
+                 'генераторы детали kewords', 'генераторы детали snippet', '' ],
              [5,3,'alternatoriai dėtalės','alternatoriai dėtalės', 'alternatoriai dėtalės seo descr',
                  'alternatoriai dėtalės kewords', 'alternatoriai dėtalės snippet', '' ],
 
              [6,1,'others parts','others parts','others parts seo descr','others parts kewords',
                  'others parts snippet', '' ],
 
-             [6,2,'другие детали','другие детали', 'другие детали seo descr',
-                 'другие детали kewords', 'другие детали snippet', '' ],
-             [6,3,'kitos dėtalės','kitos dėtalės', 'kitos dėtalės seo descr',
-                 'kitos dėtalės kewords', 'kitos dėtalės snippet', '' ],
+             [6,2,'Детали под заказ','Детали под заказ', 'другие детали seo descr',
+                 'другие детали kewords', 'Оригинальные детали под заказ из Европы', '' ],
+             [6,3,'Detalės pagal užsakima','Detalės pagal užsakima', 'kitos dėtalės seo descr',
+                 'kitos dėtalės kewords', 'Originalus detalės,pagal užsakima iš Europos', '' ],
 
 
           ]);
@@ -71,9 +71,7 @@ class m160808_190059_CategoryContent extends Migration
 
     public function down()
     {
-        echo "m160808_190059_CategoryContent cannot be reverted.\n";
-
-        return false;
+       $this->dropTable("category_content");
     }
 
     /*

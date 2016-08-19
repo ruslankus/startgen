@@ -20,7 +20,7 @@ class m160808_190048_Category extends Migration
             [3, 'starters_parts',1,'catalog2.jpg'],
             [4, 'alternators',1,'catalog3.jpg'],
             [5, 'alternators_parts', 1,'catalog4.jpg'],
-            [6, 'other_parts',1,'catalog1.jpg'],
+            [6, 'other_parts',1,'catalog5.jpg'],
 
 
         ]);

@@ -1,3 +1,8 @@
+<?php
+    use yii\jui\DatePicker;
+
+?>
+
 <div class="modal-dialog" role="document">
 
     <form method="post" action="#" class="modal-content">
@@ -25,8 +30,15 @@
 
                 <div class="form-group col-xs-12 col-sm-6">
                     <label for="exampleInputEmail1">Data</label>
-                    <input type='text' class="form-control" id="exampleInputEmail1" placeholder="Data">
+                    <?= DatePicker::widget([
+                        'name'  => 'from_date',
+                        'value'  => null,
+                        'language' => 'ru',
+                        'dateFormat' => 'yyyy-MM-dd',
+                    ]); ?>
                 </div>
+
+
 
                 <div class="form-group col-xs-12 col-sm-6">
                     <label for="avto">Avto</label>
