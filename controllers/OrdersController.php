@@ -9,12 +9,23 @@
 namespace app\controllers;
 
 
+use app\models\Orders;
+
 class OrdersController extends AppController
 {
 
     public function actionIndex()
     {
-        return $this->renderPartial('partials/_order_form');
+        $order_model = new Orders();
+
+        return $this->renderPartial('partials/_order_form', compact('order_model') );
+    }
+
+
+
+    public function actionMakeOrder()
+    {
+        return "ORDER Controller make-order";
     }
 
 }

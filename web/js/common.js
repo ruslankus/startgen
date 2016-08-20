@@ -14,7 +14,7 @@ $(document).ready(function () {
             $('#send').click(function(){
                 console.log(this);
 
-                return false;
+                //return false;
             });
 
 
@@ -24,10 +24,15 @@ $(document).ready(function () {
 
         return false;
     })
-    
-    
-    
+
 });
+
+
+function makeOrder() {
+
+    ///
+
+}
 
 
 

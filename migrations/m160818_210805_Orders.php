@@ -10,7 +10,7 @@ class m160818_210805_Orders extends Migration
             'id' => $this->primaryKey('10'),
             'name' => $this->string()->notNull(),
             'phone' => $this->string()->notNull(),
-            'order_date' => $this->dateTime(),
+            'visit_date' => $this->dateTime(),
             'car' => $this->integer()->unsigned()->notNull(),
             'problem_description' => $this->text(),
             'created_at' => $this->dateTime(),

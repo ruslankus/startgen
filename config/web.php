@@ -79,8 +79,11 @@ $config = [
                 '<language:\w{2}>/<controller:(catalog)\/>'=>'catalog/index',
                 '<language:\w{2}>/catalog/<id:\d+>'=>'catalog/category',
                 '<language:\w{2}>/catalog/<action:\w+>'=>'catalog/<action>',
-
                 '<language:\w{2}>/catalog/<action:\w+>/<id:\d+>'=>'catalog/<action>',
+
+                '<language:\w{2}>/orders'=>'orders/index',
+                '<language:\w{2}>/<controller:(orders)\/>' => 'orders/index',
+                '<language:\w{2}>/orders/<action:\w+>' => 'orders/<action>',
 
                 '<language:\w{2}>/<controller:[\w-]+>/<action:\w+>'=>'<controller>/<action>',
                 '<language:\w{2}>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

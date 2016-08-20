@@ -1,11 +1,27 @@
 <?php
     use yii\jui\DatePicker;
+    use yii\bootstrap\ActiveForm;
+    use app\models\CarList;
+    use yii\helpers\Url;
+    use app\models\Languages;
 
+    $lang_prefix = Languages::getCurrentLanguage()['prefix'];
 ?>
 
 <div class="modal-dialog" role="document">
 
-    <form method="post" action="#" class="modal-content">
+
+    <?php    $form = ActiveForm::begin([
+        'action' => Url::to(['make-order', 'language' => $lang_prefix]),
+        'options' => [
+            'class' => 'modal-content'
+
+        ],
+
+    ]);
+
+    ?>
+
 
         <div class="modal-header ">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -18,49 +34,43 @@
             </div>
 
             <div class="clearfix">
-                <div class="form-group col-xs-12 col-sm-6">
-                    <label for="exampleInputEmail1">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Name">
-                </div>
-
-                <div class="form-group col-xs-12 col-sm-6">
-                    <label for="exampleInputEmail1">Phone</label>
-                    <input type="phone" class="form-control" id="phone" placeholder="Your phone">
-                </div>
-
-                <div class="form-group col-xs-12 col-sm-6">
-                    <label for="exampleInputEmail1">Data</label>
-                    <input type="date" class="form-control" id="visit-date" placeholder="Booking date">
-
-                </div>
 
 
+                <?= $form->field($order_model, 'name',['options' => [
+                   'class' => 'form-group col-xs-12 col-sm-6'
+                ]])->textInput(['placeholder' => 'Your name']);  ?>
 
-                <div class="form-group col-xs-12 col-sm-6">
-                    <label for="avto">Avto</label>
+                <?= $form->field($order_model, 'phone',['options' => [
+                    'class' => 'form-group col-xs-12 col-sm-6'
+                ]])->textInput(['placeholder' => 'Your phone']);  ?>
 
-                    <select class="form-control" id="avto">
-                        <option>Audi</option>
-                        <option>BMW</option>
-                        <option>Nissan</option>
-                        <option>Honda</option>
-                        <option>Moskvich</option>
-                    </select>
-                </div>
+                <?= $form->field($order_model, 'visit_date',['options' => [
+                    'class' => 'form-group col-xs-12 col-sm-6'
+                ]])->textInput(['placeholder' => 'Booking date', 'id' => 'visit-date']);  ?>
 
-                <div class="form-group col-xs-12">
-                    <label for="avto">Proble description</label>
 
-                    <textarea class="form-control" rows="3"></textarea>
-                </div>
+                <?= $form->field($order_model, 'car',['options' => [
+                    'class' => 'form-group col-xs-12 col-sm-6'
+                ]])->dropdownList(
+                    CarList::find()->select(['name', 'id'])->indexBy('id')->column(),
+                    ['prompt'=>'Select car']
+
+                )  ?>
+
+
+                <?= $form->field($order_model, 'problem_description',['options' => [
+                    'class' => 'form-group col-xs-12 '
+                ]])->textarea(['placeholder' => 'Problem description']);  ?>
+
+
             </div>
 
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="send">Send</button>
+            <button type="submit" class="btn btn-primary" id="send">Send</button>
         </div>
 
-    </form>
+    <?php ActiveForm::end();?>
 
 </div>

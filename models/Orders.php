@@ -58,7 +58,7 @@ class Orders extends ActiveRecord
     {
         return [
             [['name', 'phone', 'car'], 'required'],
-            [['order_date', 'created_at', 'updated_at'], 'safe'],
+            [['visit_date', 'created_at', 'updated_at'], 'safe'],
             [['car'], 'integer'],
             [['problem_description'], 'string'],
             [['name', 'phone'], 'string', 'max' => 255],
