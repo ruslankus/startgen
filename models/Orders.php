@@ -57,7 +57,7 @@ class Orders extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'car'], 'required'],
+            [['name', 'phone', 'car', 'visit_date', 'problem_description' ], 'required'],
             [['visit_date', 'created_at', 'updated_at'], 'safe'],
             [['car'], 'integer'],
             [['problem_description'], 'string'],

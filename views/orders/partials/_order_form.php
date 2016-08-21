@@ -13,6 +13,7 @@
 
     <?php    $form = ActiveForm::begin([
         'action' => Url::to(['make-order', 'language' => $lang_prefix]),
+        'id' => 'order-form',
         'options' => [
             'class' => 'modal-content'
 
@@ -25,7 +26,7 @@
 
         <div class="modal-header ">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            <h4 class="modal-title" id="myModalLabel">Book repair</h4>
         </div>
 
         <div class="modal-body">

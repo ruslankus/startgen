@@ -83,6 +83,7 @@ $config = [
 
                 '<language:\w{2}>/orders'=>'orders/index',
                 '<language:\w{2}>/<controller:(orders)\/>' => 'orders/index',
+                '<language:\w{2}>/orders/make-order>' => 'orders/make-order',
                 '<language:\w{2}>/orders/<action:\w+>' => 'orders/<action>',
 
                 '<language:\w{2}>/<controller:[\w-]+>/<action:\w+>'=>'<controller>/<action>',
