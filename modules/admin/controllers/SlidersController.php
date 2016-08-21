@@ -195,9 +195,9 @@ class SlidersController extends Controller
 
 
     /**
-     * Edit translation for current slide
-     * @return string|\yii\web\Response
-     */
+    * Edit translation for current slide
+    * @return string|\yii\web\Response
+    */
     public function actionContentEdit()
     {
 
