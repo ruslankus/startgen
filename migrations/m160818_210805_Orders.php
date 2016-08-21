@@ -11,8 +11,10 @@ class m160818_210805_Orders extends Migration
             'name' => $this->string()->notNull(),
             'phone' => $this->string()->notNull(),
             'visit_date' => $this->dateTime(),
-            'car' => $this->integer()->unsigned()->notNull(),
+            'car_id' => $this->integer()->unsigned()->notNull(),
             'problem_description' => $this->text(),
+            'is_seen' => $this->boolean()->notNull()->defaultValue(false),
+            'is_active' => $this->boolean()->notNull()->defaultValue(true),
             'created_at' => $this->dateTime(),
             'updated_at' => $this->dateTime()
         ]);

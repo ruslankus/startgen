@@ -84,7 +84,12 @@
                 </li>
 
 
-                <li><a href="#">Users</a></li>
+                <li>
+                    <a href="<?= Url::toRoute(["/admin/orders"])?>">Orders</a>
+                </li>
+
+
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
                         Settings list

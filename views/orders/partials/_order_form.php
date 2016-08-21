@@ -4,6 +4,7 @@
     use app\models\CarList;
     use yii\helpers\Url;
     use app\models\Languages;
+    use app\models\Messages;
 
     $lang_prefix = Languages::getCurrentLanguage()['prefix'];
 ?>
@@ -31,7 +32,7 @@
 
         <div class="modal-body">
             <div class="clearfix col-xs-12">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, suscipit!</p>
+                <p><?= Messages::t('make appointent') ?></p>
             </div>
 
             <div class="clearfix">
@@ -50,7 +51,7 @@
                 ]])->textInput(['placeholder' => 'Booking date', 'id' => 'visit-date']);  ?>
 
 
-                <?= $form->field($order_model, 'car',['options' => [
+                <?= $form->field($order_model, 'car_id',['options' => [
                     'class' => 'form-group col-xs-12 col-sm-6'
                 ]])->dropdownList(
                     CarList::find()->select(['name', 'id'])->indexBy('id')->column(),

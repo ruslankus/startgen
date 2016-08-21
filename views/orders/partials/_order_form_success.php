@@ -4,6 +4,7 @@
     use app\models\CarList;
     use yii\helpers\Url;
     use app\models\Languages;
+    use app\models\Messages;
 
     $lang_prefix = Languages::getCurrentLanguage()['prefix'];
 ?>
@@ -17,7 +18,7 @@
 
         <div class="modal-body">
             <div class="clearfix col-xs-12">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, suscipit!</p>
+                <p><?= Messages::t('bookikng sussess') ?></p>
             </div>
 
 

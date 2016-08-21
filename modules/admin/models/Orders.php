@@ -1,12 +1,8 @@
 <?php
 
-namespace app\models;
+namespace app\modules\admin\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveRecord;
-use yii\db\Expression;
-
 
 /**
  * This is the model class for table "orders".
@@ -14,35 +10,14 @@ use yii\db\Expression;
  * @property integer $id
  * @property string $name
  * @property string $phone
- * @property string $order_date
+ * @property string $visit_date
  * @property integer $car
  * @property string $problem_description
  * @property string $created_at
  * @property string $updated_at
  */
-class Orders extends ActiveRecord
+class Orders extends \yii\db\ActiveRecord
 {
-
-
-    public function behaviors()
-    {
-        return [
-
-
-
-            [
-                'class' => TimestampBehavior::className(),
-                'attributes' => [
-                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
-                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
-                ],
-                // если вместо метки времени UNIX используется datetime:
-                'value' => new Expression('NOW()'),
-            ],
-        ];
-    }//behaviors
-
-
     /**
      * @inheritdoc
      */
@@ -57,12 +32,20 @@ class Orders extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'car_id', 'visit_date', 'problem_description' ], 'required'],
+            [['name', 'phone', 'car_id'], 'required'],
             [['visit_date', 'created_at', 'updated_at'], 'safe'],
             [['car_id'], 'integer'],
+            [['is_seen', 'is_active'], 'safe'],
             [['problem_description'], 'string'],
             [['name', 'phone'], 'string', 'max' => 255],
         ];
+    }
+
+
+
+    public function getCar()
+    {
+        return $this->hasOne(CarList::className(),['id' => 'car_id']);
     }
 
     /**
@@ -77,8 +60,22 @@ class Orders extends ActiveRecord
             'visit_date' => 'Visit Date',
             'car_id' => 'Car Name',
             'problem_description' => 'Problem Description',
+            'is_seen' => 'Orders is seen',
+            'is_active' => 'Active',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+
+    public function seenChange()
+    {
+        if(!$this->is_seen){
+
+            $this->is_seen = true;
+            $this->save();
+        }
+
+        return true;
     }
 }
