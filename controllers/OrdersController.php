@@ -53,4 +53,34 @@ class OrdersController extends AppController
         return $this->redirect(['/']);
     }
 
+
+
+    public function actionFormOrder()
+    {
+        if(Yii::$app->request->isAjax)
+        {
+            $order_model = new Orders();
+            $post_data = Yii::$app->request->post();
+
+            if ($order_model->load($post_data)) {
+
+                $old_date = $order_model->visit_date;
+
+                $order_model->visit_date = date( 'Y-m-d H:i:s', strtotime($order_model->visit_date));
+
+                if($order_model->save()){
+                    return $this->renderPartial('partials/_order_page_form_success');
+                }
+
+                $order_model->visit_date = $old_date;
+                return $this->renderPartial('partials/_order_page_form', compact('order_model'));
+
+            } else {
+
+                return $this->renderPartial('partials/_order_form', compact('order_model'));
+            }
+
+        }
+    }
+
 }

@@ -1,5 +1,10 @@
 $(document).ready(function () {
-   
+
+    var lang = $('html').attr('lang');
+
+    $.datepicker.setDefaults($.datepicker.regional[lang]);
+    $('#visit-date').datepicker({ minDate: +1, maxDate: "+1M" });
+
     $('.book-apm').click(function () {
 
         console.log(this);
@@ -32,7 +37,36 @@ $(document).ready(function () {
 
 
 
+    $('#form-holder').on('click', '#big-form', function () {
+
+        var spinner = createSpinner();
+        $("#form-holder").append(spinner);
+        console.log(this);
+
+        makePageOrder();
+
+        return false;
+    })
+
+
+
 });
+
+
+
+function makePageOrder()
+{
+    var $form = $("#order-form");
+    var action = $form.attr('action');
+    var formData = $form.serializeArray();
+    console.log(formData);
+
+    $('#form-holder').load(action, formData, function(data){
+        $('#visit-date').datepicker({ minDate: +1, maxDate: "+1M" });
+        console.log(data);
+        fadeSpinner();
+    });
+}
 
 
 function makeOrder() {
@@ -42,9 +76,9 @@ function makeOrder() {
     var formData = $form.serializeArray();
     console.log(formData);
 
-    $('#myModal').load(action,formData, function(data){
+    $('#myModal').load(action,formData, function(){
         $('#visit-date').datepicker({ minDate: +1, maxDate: "+1M" });
-        console.log(data);
+
         fadeSpinner();
 
     })

@@ -6,6 +6,7 @@
     use app\components\widgets\MenuWidget;
     use app\components\widgets\SliderWidget;
     use app\components\widgets\FooterWidget;
+    use app\models\Languages;
 
 
     FrontAsset::register($this);
@@ -14,7 +15,7 @@
 
 <?php $this->beginPage() ?>
 <!DOCTYPE HTML>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Languages::getCurrentLanguage()['prefix']; ?>"
 <head>
 
     <meta charset="<?= Yii::$app->charset ?>">
