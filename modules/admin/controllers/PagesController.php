@@ -18,6 +18,11 @@ use app\modules\admin\models\Languages;
  */
 class PagesController extends Controller
 {
+
+    public function init()
+    {
+        Yii::$app->view->params['current'] = 'pages';
+    }
     /**
      * @inheritdoc
      */

@@ -15,11 +15,11 @@
 
             <ul class="nav navbar-nav">
 
-                <li class="active">
+                <li class="<?= ('menu' == $current )? 'active' : '' ?> ">
                     <a href="<?= Url::to(['/admin/menu'])?>">Menu structure</a>
                 </li>
 
-                <li class="dropdown">
+                <li class="dropdown  <?= ('pages' == $current )? 'active' : '' ?> ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">
                         Pages
                         <span class="caret"></span>
@@ -45,7 +45,7 @@
                     </ul>
                 </li>
 
-                <li class="dropdown">
+                <li class="dropdown  <?= ('head_slide' == $current )? 'active' : '' ?> ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">
                         Headlines & Sliders
                         <span class="caret"></span>
@@ -66,7 +66,7 @@
 
 
 
-                <li class="dropdown">
+                <li class="dropdown  <?= ('product' == $current )? 'active' : '' ?> ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">
                         Product menu
                         <span class="caret"></span>
@@ -84,13 +84,13 @@
                 </li>
 
 
-                <li>
+                <li class="<?= ('orders' == $current )? 'active' : '' ?> ">
                     <a href="<?= Url::toRoute(["/admin/orders"])?>">Orders</a>
                 </li>
 
 
 
-                <li class="dropdown">
+                <li class="dropdown  <?= ('settings' == $current )? 'active' : '' ?> ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
                         Settings list
                         <span class="caret"></span>
@@ -103,7 +103,14 @@
                         <li>
                             <a href="<?= Url::toRoute(['/admin/language']) ?>">Languages</a>
                         </li>
-                        <li><a href="#">Labels</a></li>
+
+                        <li>
+                            <a href="<?= Url::toRoute(['/admin/labels'])?>">Labels</a>
+                        </li>
+
+                        <li>
+                            <a href="<?= Url::toRoute(['/admin/messages'])?>">Messages</a>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="#">Link</a> </li>

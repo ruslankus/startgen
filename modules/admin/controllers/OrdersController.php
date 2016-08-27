@@ -14,6 +14,12 @@ use yii\filters\VerbFilter;
  */
 class OrdersController extends Controller
 {
+
+    public function init()
+    {
+        Yii::$app->view->params['current'] = 'orders';
+    }
+
     /**
      * @inheritdoc
      */

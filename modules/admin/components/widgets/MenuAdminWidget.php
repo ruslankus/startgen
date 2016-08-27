@@ -13,10 +13,12 @@ use yii\base\Widget;
 
 class MenuAdminWidget extends Widget
 {
+    public $current;
+
     public function run()
     {
 
-        return $this->render('admin_menu');
+        return $this->render('admin_menu', ['current' => $this->current]);
 
     }
 }

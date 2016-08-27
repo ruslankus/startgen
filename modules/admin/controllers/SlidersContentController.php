@@ -14,6 +14,12 @@ use yii\filters\VerbFilter;
  */
 class SlidersContentController extends Controller
 {
+
+    public function init()
+    {
+        Yii::$app->view->params['current'] = 'head_slide';
+    }
+
     /**
      * @inheritdoc
      */

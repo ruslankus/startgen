@@ -37,8 +37,14 @@ $lang_map = Languages::getLangMap();
         'attributes' => [
             'id',
             'label',
+
+            [
+                'attribute' => 'active',
+                'value' => !empty($model->active) ? 'Active' : 'Switch Off'
+            ],
             'link',
             'link_value',
+
             [
                 'attribute' =>'img',
                 'value' => Html::img("@web/images/sliders/{$model->img }", ['width' => 700]),

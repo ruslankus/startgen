@@ -14,6 +14,12 @@ use yii\filters\VerbFilter;
  */
 class MenuController extends AppController
 {
+
+    public function init()
+    {
+        Yii::$app->view->params['current'] = 'menu';
+    }
+
     /**
      * @inheritdoc
      */

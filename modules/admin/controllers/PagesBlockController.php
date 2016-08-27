@@ -14,6 +14,11 @@ use yii\filters\VerbFilter;
  */
 class PagesBlockController extends Controller
 {
+    public function init()
+    {
+        Yii::$app->view->params['current'] = 'pages';
+    }
+
     /**
      * @inheritdoc
      */

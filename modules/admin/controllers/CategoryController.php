@@ -18,6 +18,12 @@ use app\modules\admin\models\Languages;
  */
 class CategoryController extends Controller
 {
+
+    public function init()
+    {
+        Yii::$app->view->params['current'] = 'product';
+    }
+
     /**
      * @inheritdoc
      */

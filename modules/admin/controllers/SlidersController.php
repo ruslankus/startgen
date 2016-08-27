@@ -17,6 +17,12 @@ use app\modules\admin\models\SlidersContent;
  */
 class SlidersController extends Controller
 {
+
+    public function init()
+    {
+        Yii::$app->view->params['current'] = 'head_slide';
+    }
+
     /**
      * @inheritdoc
      */

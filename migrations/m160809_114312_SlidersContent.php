@@ -18,8 +18,8 @@ class m160809_114312_SlidersContent extends Migration
         $this->batchInsert('sliders_content', ['slide_id','lang_id', 'title', 'text'], [
 
             [1,1, 'English title', "English text text text"],
-            [1,2, 'Русский заголовок', "Русский текст текст текст текст текст"],
-            [1,3, 'Lietuviskas pavadinimas', "Lietuviskas tekstas tekstas tekstas tekstas"],
+            [1,2, 'Не заводится двигатель или горит лампочка акумулятора,обращайтесь,мы знаем, как вам помочь!!!', ""],
+            [1,3, 'Nesiveda variklis arba švečia akumuliatoriaus lėmpute,kreipkites,mes žinom,kaip jums padėti. ', ""],
 
             [2,1, 'English title', "English text text text"],
             [2,2, 'Русский заголовок', "Русский текст текст текст текст текст"],

@@ -16,6 +16,11 @@ class LanguageController extends AppController
 {
 
 
+    public function init()
+    {
+        Yii::$app->view->params['current'] = 'settings';
+    }
+
     /**
      * @inheritdoc
      */

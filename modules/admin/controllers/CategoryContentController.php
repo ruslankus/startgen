@@ -14,6 +14,12 @@ use yii\filters\VerbFilter;
  */
 class CategoryContentController extends Controller
 {
+
+    public function init()
+    {
+        Yii::$app->view->params['current'] = 'product';
+    }
+
     /**
      * @inheritdoc
      */

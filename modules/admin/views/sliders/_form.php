@@ -14,6 +14,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'label')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'active')->checkbox([false,true]) ?>
+
     <?= $form->field($model, 'link')->textInput() ?>
 
     <?= $form->field($model, 'link_value')->textInput(['maxlength' => true]) ?>

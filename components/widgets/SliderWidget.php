@@ -30,6 +30,7 @@ class SliderWidget extends Widget
         if(empty($content)) {
 
             $sliders_array = Sliders::find()->with('content')
+                ->where(['active' => true])
                 ->asArray()
                 ->all();
 

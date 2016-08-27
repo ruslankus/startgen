@@ -29,7 +29,9 @@ AdminAsset::register($this);
     <?php $this->beginBody() ?>
 
 
-    <?= MenuAdminWidget::widget();?>
+    <?= MenuAdminWidget::widget([
+        'current' => !empty($this->params['current'])? $this->params['current'] : ''
+    ]);?>
 
 
     <div class="container">

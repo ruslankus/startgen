@@ -16,6 +16,12 @@ use app\modules\admin\models\Languages;
  */
 class LabelsController extends Controller
 {
+
+    public function init()
+    {
+        Yii::$app->view->params['current'] = 'settings';
+    }
+
     /**
      * @inheritdoc
      */

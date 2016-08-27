@@ -34,6 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html'
             ],
 
+            [
+                'attribute' => 'active',
+                'value' => function($data)
+                {
+                    return !empty($data->active) ? 'Active' : "Switch Off";
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

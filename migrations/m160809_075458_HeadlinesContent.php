@@ -52,8 +52,8 @@ class m160809_075458_HeadlinesContent extends Migration
             [4,2, 'Консультация ', 'Нащи специалисты помогут вам, найти необходимую запчасть,используя данные вашего
              автомобиля или по оригинальному номеру Стартера,Генератора.'],
 
-            [4,3, 'Konsūltavimas', 'Mūsų specialistai,padęs jums surastį tinkantį dėtale, pagal starterio, generatoriaus
-             numerį, arba pagal automobilio duomenis.'],
+            [4,3, 'Konsūltavimas', 'Mūsų patyrę darbuotojai padės parinkti tinkančias dalis pagal starterio,generatoriaus arba
+             automobilio duomenis.'],
 
          ]);
     }
