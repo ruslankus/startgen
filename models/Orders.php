@@ -6,6 +6,7 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
+use app\models\Labels;
 
 
 /**
@@ -72,11 +73,11 @@ class Orders extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'phone' => 'Phone',
-            'visit_date' => 'Visit Date',
-            'car_id' => 'Car Name',
-            'problem_description' => 'Problem Description',
+            'name' => Labels::t('name') ,
+            'phone' => Labels::t('phone'),
+            'visit_date' => Labels::t('visit_date'),
+            'car_id' => Labels::t('car_type'),
+            'problem_description' => Labels::t('problem_description'),
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

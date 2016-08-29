@@ -2,12 +2,13 @@
     use yii\helpers\Html;
     use yii\helpers\Url;
     use app\models\Languages;
+    use app\models\Labels;
 
     $lang_prefix  = Languages::getCurrentLanguage()['prefix'];
 ?>
 <div class="recent-places">
 
-    <h4>Our products</h4>
+    <h4><?= Labels::t('our_product')?></h4>
     <h5> </h5><div class="clearfix"> </div>
 
     <?php foreach ($category_array as $cat):
@@ -23,7 +24,7 @@
                 <?= $content['snippet']?>
             </p>
             <a href="<?= Url::toRoute(['catalog/category', 'id' => $cat['id'], 'language' => $lang_prefix ])?>">
-                ReadMore
+               <?= Labels::t('read_more')?>
             </a>
         </div>
     </div>

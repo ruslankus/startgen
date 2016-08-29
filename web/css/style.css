@@ -982,12 +982,25 @@ body a:hover{
 }
 .span_1_of_3  h5,.contact-form h5{
 	float: right;
-	width: 75.5%;
+	width: 60%;
 	background: url(../images/hd-bg.png) 0% 73% repeat-x;
 	display: inline-block;
 	height: 15px;
 	margin: 0.2em 0em 0em 0em;
 }
+
+.company_address h5.lt{
+	width: 45%; 
+}
+
+.contact_info  h5.lt {
+	width: 30%;
+}
+
+.contact-form h5.lt {
+	width: 45%;
+}
+
 .contact_info {
     margin-bottom: 3em;
 }
@@ -1120,10 +1133,10 @@ body a:hover{
 		/*padding: 15px 95.6px; */
 	}
 	.grids h5 {
-		width: 84%;
+		width: 77%;
 	}
 	.recent-places h5 {
-		width: 81%;
+		width: 80%;
 	}
 	.holder {
 		width: 23.2%;

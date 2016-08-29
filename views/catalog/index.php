@@ -2,6 +2,7 @@
     use yii\helpers\Html;
     use yii\helpers\Url;
     use app\models\Languages;
+    use app\models\Labels;
 
  $cat_content = array_shift($category_array['content']) ;
  $lang_prefix = Languages::getCurrentLanguage()['prefix'];
@@ -31,7 +32,7 @@
                     <div class="button">
                         <span>
                             <a href="<?= Url::toRoute(['catalog/category', 'language' => $lang_prefix, 'id' => $item['id']])?>">
-                                Read More
+                                <?= Labels::t('read_more')?>
                             </a>
                         </span>
                     </div>

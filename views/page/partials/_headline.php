@@ -1,7 +1,10 @@
-<?php use yii\helpers\Html; ?>
+<?php
+    use yii\helpers\Html;
+    use app\models\Labels;
+?>
 
 <div class="grids">
-    <h4>What We Do</h4><h5> </h5><div class="clearfix"> </div>
+    <h4><?= Labels::t('what_we_do') ?></h4><h5> </h5><div class="clearfix"> </div>
 
     <div class="section group">
 

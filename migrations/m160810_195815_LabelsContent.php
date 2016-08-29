@@ -28,6 +28,53 @@ class m160810_195815_LabelsContent extends Migration
             [3,2,'Записатся на ремонт'],
             [3,3,'Remonto registravimas'],
 
+            [4,1,'What we do'],
+            [4,2,'Наши услуги'],
+            [4,3,'Musu veikla'],
+
+            [5,1,'Our Products'],
+            [5,2,'Наши товары'],
+            [5,3,'Musu produktai'],
+
+            [6,1,'Read more'],
+            [6,2,'Подробнее'],
+            [6,3,'Тiksliau'],
+
+            [7,1,'Find'],
+            [7,2,'Как нас найти'],
+            [7,3,'Kaip mus surast'],
+
+            [8,1,'Info'],
+            [8,2,'Информация'],
+            [8,3,'Informacija'],
+
+            [9,1,'Book repair'],
+            [9,2,'Резервация ремонта'],
+            [9,3,'Laiko rezervacija remontui'],
+
+            [10,1,'Your name'],
+            [10,2,'Ваше имя'],
+            [10,3,'Jusu vardas '],
+
+            [11,1,'Visit day'],
+            [11,2,'День резервации'],
+            [11,3,'Visito diena'],
+
+            [12,1,'Car type'],
+            [12,2,'Тип авто'],
+            [12,3,'Avto tipas'],
+
+            [13,1,'Problem description'],
+            [13,2,'Описание проблемы'],
+            [13,3,'Jusu problema'],
+
+
+
+
+
+
+
+
 
         ]);
     }

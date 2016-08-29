@@ -15,7 +15,17 @@ class m160810_195756_Labels extends Migration
         $this->batchInsert('labels', ['id','label'], [
             [1, 'catalog'],
             [2, 'phone'],
-            [3, 'make appointent']
+            [3, 'make appointent'],
+            [4, 'what_we_do'],
+            [5, 'our_product'],
+            [6, 'read_more'],
+            [7, 'find'],
+            [8, 'info'],
+            [9, 'contact_us'],
+            [10, 'name'],
+            [11, 'visit_date'],
+            [12, 'car_type'],
+            [13, 'problem_description']
         ]);
     }
 
