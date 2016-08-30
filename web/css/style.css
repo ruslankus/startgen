@@ -1,3 +1,8 @@
+* {
+	margin:0;
+	padding: 0;
+}
+
 
 h4, h5, h6,
 h1, h2, h3 {margin: 0;}
@@ -246,7 +251,7 @@ body a:hover{
 }
 .grids h5{
 	float: right;
-	width: 85%;
+	width: 80%;
 	background: url(../images/hd-bg.png) 0% 73% repeat-x;
 	display: inline-block;
 	padding: 10px;
@@ -993,13 +998,27 @@ body a:hover{
 	width: 45%; 
 }
 
+.company_address h5.ru{
+	width: 40%;
+}
+
 .contact_info  h5.lt {
+	width: 30%;
+}
+
+.contact_info  h5.ru {
 	width: 30%;
 }
 
 .contact-form h5.lt {
 	width: 45%;
 }
+
+.contact-form h5.ru {
+	width: 52%;
+}
+
+
 
 .contact_info {
     margin-bottom: 3em;
@@ -1084,6 +1103,17 @@ body a:hover{
 
 
 /*------------------ contact form --------------------*/
+
+.button-holder {
+
+
+}
+
+.button-holder > div {
+
+
+}
+
 
 #form-holder > div > table {
 

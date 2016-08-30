@@ -58,15 +58,15 @@ class m160810_195815_LabelsContent extends Migration
 
             [11,1,'Visit day'],
             [11,2,'День резервации'],
-            [11,3,'Visito diena'],
+            [11,3,'Registracijos laikas remontui'],
 
             [12,1,'Car type'],
-            [12,2,'Тип авто'],
-            [12,3,'Avto tipas'],
+            [12,2,'Марка машины'],
+            [12,3,'Automobilio markė.'],
 
             [13,1,'Problem description'],
             [13,2,'Описание проблемы'],
-            [13,3,'Jusu problema'],
+            [13,3,'Trumpas gedimo aprašymas.'],
 
 
 

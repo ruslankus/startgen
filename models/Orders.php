@@ -3,11 +3,6 @@
 namespace app\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveRecord;
-use yii\db\Expression;
-use app\models\Labels;
-
 
 /**
  * This is the model class for table "orders".
@@ -15,35 +10,19 @@ use app\models\Labels;
  * @property integer $id
  * @property string $name
  * @property string $phone
- * @property string $order_date
- * @property integer $car
+ * @property string $visit_date
+ * @property integer $car_id
+ * @property string $car_year
+ * @property string $engine_power
+ * @property string $engine_volume
  * @property string $problem_description
+ * @property integer $is_seen
+ * @property integer $is_active
  * @property string $created_at
  * @property string $updated_at
  */
-class Orders extends ActiveRecord
+class Orders extends \yii\db\ActiveRecord
 {
-
-
-    public function behaviors()
-    {
-        return [
-
-
-
-            [
-                'class' => TimestampBehavior::className(),
-                'attributes' => [
-                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
-                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
-                ],
-                // если вместо метки времени UNIX используется datetime:
-                'value' => new Expression('NOW()'),
-            ],
-        ];
-    }//behaviors
-
-
     /**
      * @inheritdoc
      */
@@ -58,11 +37,11 @@ class Orders extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'car_id', 'visit_date', 'problem_description' ], 'required'],
+            [['name', 'phone', 'car_id'], 'required'],
             [['visit_date', 'created_at', 'updated_at'], 'safe'],
-            [['car_id'], 'integer'],
+            [['car_id', 'is_seen', 'is_active'], 'integer'],
             [['problem_description'], 'string'],
-            [['name', 'phone'], 'string', 'max' => 255],
+            [['name', 'phone', 'car_year', 'engine_power', 'engine_volume'], 'string', 'max' => 255],
         ];
     }
 
@@ -77,7 +56,11 @@ class Orders extends ActiveRecord
             'phone' => Labels::t('phone'),
             'visit_date' => Labels::t('visit_date'),
             'car_id' => Labels::t('car_type'),
+            'engine_power' => 'Engine Power',
+            'engine_volume' => 'Engine Volume',
             'problem_description' => Labels::t('problem_description'),
+            'is_seen' => 'Is Seen',
+            'is_active' => 'Is Active',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

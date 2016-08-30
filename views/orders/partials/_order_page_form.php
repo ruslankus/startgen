@@ -36,6 +36,9 @@
     ]])->textInput(['placeholder' => 'Your name' ,'class' => 'textbox' ]);  ?>
 
 
+    <div style="clear: both"></div>
+
+
 <?= $form->field($order_model, 'visit_date',[
     'template' => '<div>{label}</div> <div>{input}{error}</div>',
     'options' => [
@@ -54,7 +57,24 @@
 ); ?>
 
 
-<div class="clear"></div>
+    <div style="clear: both"></div>
+
+<?= $form->field($order_model, 'car_year',['options' => [
+    'class' => 'form-group col-xs-12 col-sm-4'
+]])->textInput(['placeholder' => 'Car year', 'class' => 'textbox']);  ?>
+
+<?= $form->field($order_model, 'engine_power',['options' => [
+    'class' => 'form-group col-xs-12 col-sm-4'
+]])->textInput(['placeholder' => 'Kw', 'class' => 'textbox']);  ?>
+
+
+<?= $form->field($order_model, 'engine_volume',['options' => [
+    'class' => 'form-group col-xs-12 col-sm-4'
+]])->textInput(['placeholder' => 'cm', 'class' => 'textbox']);  ?>
+
+
+
+    <div style="clear: both"></div>
 
 <?= $form->field($order_model, 'problem_description',[
 
@@ -63,11 +83,11 @@
         'class' => 'form-group col-xs-12 '
     ]])->textarea(['placeholder' => 'Problem description']);  ?>
 
+    <div style="clear: both"></div>
 
-<div class="clearfix">
     <div>
-        <input type="submit" value="Submit" id="big-form">
+        <input type="submit" value="Submit" id="big-form" />
     </div>
-</div>
+
 
 <?php $form->end() ?>

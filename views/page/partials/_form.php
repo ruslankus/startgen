@@ -50,7 +50,9 @@
 
             <div class="contact-form">
                 <h3><?= Labels::t('contact_us')?></h3><h5 class="<?= $lang_prefix?>"> </h5>
-                <div class="clearfix"></div>
+                <div style="clear:both"></div>
+
+
                 <div class="clearfix" id="form-holder">
 
                     <?php    $form = ActiveForm::begin([
@@ -80,7 +82,7 @@
                             'class' => 'col-xs-12 col-sm-6'
                     ]])->textInput(['placeholder' => Labels::t('your_phone') ,'class' => 'textbox' ]);  ?>
 
-
+                    <div style="clear: both"></div>
                     <?= $form->field($order_model, 'visit_date',[
                         'template' => '<div>{label}</div> <div>{input}{error}</div>',
                         'options' => [
@@ -98,8 +100,24 @@
 
                     ); ?>
 
+                    <div style="clear: both"></div>
 
-                    <div class="clear"></div>
+                    <?= $form->field($order_model, 'car_year',['options' => [
+                        'class' => 'form-group col-xs-12 col-sm-4'
+                    ]])->textInput(['placeholder' => 'Car year', 'class' => 'textbox']);  ?>
+
+                    <?= $form->field($order_model, 'engine_power',['options' => [
+                        'class' => 'form-group col-xs-12 col-sm-4'
+                    ]])->textInput(['placeholder' => 'Kw', 'class' => 'textbox']);  ?>
+
+
+                    <?= $form->field($order_model, 'engine_volume',['options' => [
+                        'class' => 'form-group col-xs-12 col-sm-4'
+                    ]])->textInput(['placeholder' => 'cm', 'class' => 'textbox']);  ?>
+
+
+
+                    <div style="clear: both"></div>
 
                     <?= $form->field($order_model, 'problem_description',[
 
@@ -109,7 +127,7 @@
                     ]])->textarea(['placeholder' => Labels::t('problem_description')]);  ?>
 
 
-                    <div class="clearfix">
+                    <div class="clearfix button-holder">
                         <div>
                             <input type="submit" value="Submit" id="big-form">
                         </div>
