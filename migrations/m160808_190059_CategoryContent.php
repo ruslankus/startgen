@@ -34,7 +34,7 @@ class m160808_190059_CategoryContent extends Migration
              [3,1,'starters parts','starters parts', 'starters parts seo descr','starters parts kewords',
                  'starters parts snippet', '' ],
 
-             [3,2,'стартеры детали','стартеры детали', 'стартеры детали seo descr','стартеры детали kewords',
+             [3,2,'Детали стартеров','Детали стартеров', 'стартеры детали seo descr','стартеры детали kewords',
                  'стартеры детали snippet', '' ],
 
              [3,3,'starterių dalys','starterių dalys', 'starterių dalys seo descr','
@@ -47,7 +47,7 @@ class m160808_190059_CategoryContent extends Migration
              [5,1,'alterantors parts','alterantors parts','alterantors parts seo descr','alterantors parts kewords',
                  'alterantors parts snippet', '' ],
 
-             [5,2,'генераторы детали','генераторы детали', 'генераторы детали seo descr',
+             [5,2,'Генератора детали','Генератора детали', 'Генератора детали seo descr',
                  'генераторы детали kewords', 'генераторы детали snippet', '' ],
              [5,3,'generatorių dalys','generatorių dalys', 'generatorių dalys seo descr',
                  'generatorių dalys kewords', 'generatorių dalys snippet', '' ],

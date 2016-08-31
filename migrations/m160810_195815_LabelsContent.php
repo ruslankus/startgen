@@ -25,7 +25,7 @@ class m160810_195815_LabelsContent extends Migration
             [2,3,'Telefonas'],
 
             [3,1,'Book for repair'],
-            [3,2,'Записатся на ремонт'],
+            [3,2,'Записаться на ремонт'],
             [3,3,'Remonto registravimas'],
 
             [4,1,'What we do'],
@@ -67,6 +67,24 @@ class m160810_195815_LabelsContent extends Migration
             [13,1,'Problem description'],
             [13,2,'Описание проблемы'],
             [13,3,'Trumpas gedimo aprašymas.'],
+
+            [14,1, 'Car year'],
+            [14,2, 'Год производства'],
+            [14,3, 'Pagaminimo metai.'],
+
+            [15,1, 'Engine Power'],
+            [15,2, 'Мощность двигателя'],
+            [15,3, 'Variklio galia kw.'],
+
+            [16,1, 'Engine Volume'],
+            [16,2, 'Обьем двигателя см3'],
+            [16,3, 'Variklio tūris cm3.'],
+
+            [17,1, 'Select car'],
+            [17,2, 'Выберите машину '],
+            [17,3, 'Select car.'],
+
+
 
 
 

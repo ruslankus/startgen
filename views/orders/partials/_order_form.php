@@ -41,44 +41,44 @@
 
                 <?= $form->field($order_model, 'name',['options' => [
                    'class' => 'form-group col-xs-12 col-sm-6'
-                ]])->textInput(['placeholder' => 'Your name']);  ?>
+                ]])->textInput(['placeholder' => Labels::t('name')]);  ?>
 
                 <?= $form->field($order_model, 'phone',['options' => [
                     'class' => 'form-group col-xs-12 col-sm-6'
-                ]])->textInput(['placeholder' => 'Your phone']);  ?>
+                ]])->textInput(['placeholder' => Labels::t('phone')]);  ?>
 
                 <?= $form->field($order_model, 'visit_date',['options' => [
                     'class' => 'form-group col-xs-12 col-sm-6'
-                ]])->textInput(['placeholder' => 'Booking date', 'id' => 'visit-date']);  ?>
+                ]])->textInput(['placeholder' => Labels::t('visit_date'), 'id' => 'visit-date']);  ?>
 
 
                 <?= $form->field($order_model, 'car_id',['options' => [
                     'class' => 'form-group col-xs-12 col-sm-6'
                 ]])->dropdownList(
                     CarList::find()->select(['name', 'id'])->indexBy('id')->column(),
-                    ['prompt'=>'Select car']
+                    ['prompt'=> Labels::t('select_car')]
 
                 )  ?>
 
 
                 <?= $form->field($order_model, 'car_year',['options' => [
                     'class' => 'form-group col-xs-12 col-sm-4'
-                ]])->textInput(['placeholder' => 'Car year']);  ?>
+                ]])->textInput(['placeholder' => Labels::t('car_year')]);  ?>
 
                 <?= $form->field($order_model, 'engine_power',['options' => [
                     'class' => 'form-group col-xs-12 col-sm-4'
-                ]])->textInput(['placeholder' => 'Kw']);  ?>
+                ]])->textInput(['placeholder' => Labels::t('engine_power')]);  ?>
 
 
                 <?= $form->field($order_model, 'engine_volume',['options' => [
                     'class' => 'form-group col-xs-12 col-sm-4'
-                ]])->textInput(['placeholder' => 'cm']);  ?>
+                ]])->textInput(['placeholder' => Labels::t('engine_volume')]);  ?>
 
 
 
                 <?= $form->field($order_model, 'problem_description',['options' => [
                     'class' => 'form-group col-xs-12 '
-                ]])->textarea(['placeholder' => 'Problem description']);  ?>
+                ]])->textarea(['placeholder' => Labels::t('problem_description')]);  ?>
 
 
             </div>

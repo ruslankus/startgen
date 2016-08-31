@@ -73,14 +73,14 @@
                         'template' => '<div>{label}</div> <div>{input}{error}</div>',
                         'options' => [
                         'class' => 'col-xs-12 col-sm-6'
-                    ]])->textInput(['placeholder' => Labels::t('your_name') ,'class' => 'textbox' ]);  ?>
+                    ]])->textInput(['placeholder' => Labels::t('name') ,'class' => 'textbox' ]);  ?>
 
 
                     <?= $form->field($order_model, 'phone',[
                         'template' => '<div>{label}</div> <div>{input}{error}</div>',
                         'options' => [
                             'class' => 'col-xs-12 col-sm-6'
-                    ]])->textInput(['placeholder' => Labels::t('your_phone') ,'class' => 'textbox' ]);  ?>
+                    ]])->textInput(['placeholder' => Labels::t('phone') ,'class' => 'textbox' ]);  ?>
 
                     <div style="clear: both"></div>
                     <?= $form->field($order_model, 'visit_date',[
@@ -104,16 +104,16 @@
 
                     <?= $form->field($order_model, 'car_year',['options' => [
                         'class' => 'form-group col-xs-12 col-sm-4'
-                    ]])->textInput(['placeholder' => 'Car year', 'class' => 'textbox']);  ?>
+                    ]])->textInput(['placeholder' => Labels::t('car_year'), 'class' => 'textbox']);  ?>
 
                     <?= $form->field($order_model, 'engine_power',['options' => [
                         'class' => 'form-group col-xs-12 col-sm-4'
-                    ]])->textInput(['placeholder' => 'Kw', 'class' => 'textbox']);  ?>
+                    ]])->textInput(['placeholder' => 'XXX', 'class' => 'textbox']);  ?>
 
 
                     <?= $form->field($order_model, 'engine_volume',['options' => [
                         'class' => 'form-group col-xs-12 col-sm-4'
-                    ]])->textInput(['placeholder' => 'cm', 'class' => 'textbox']);  ?>
+                    ]])->textInput(['placeholder' => 'XXX', 'class' => 'textbox']);  ?>
 
 
 

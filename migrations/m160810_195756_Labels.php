@@ -25,7 +25,12 @@ class m160810_195756_Labels extends Migration
             [10, 'name'],
             [11, 'visit_date'],
             [12, 'car_type'],
-            [13, 'problem_description']
+            [13, 'problem_description'],
+            [14, 'car_year'],
+            [15, 'engine_power'],
+            [16, 'engine_volume'],
+            [17,'select_car']
+
         ]);
     }
 

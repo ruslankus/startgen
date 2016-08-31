@@ -17,7 +17,7 @@ class m160821_125133_MessagesContent extends Migration
         $this->batchInsert('messages_content', ['message_id','lang_id', 'content'], [
 
             [1,1,'make appointent'],
-            [1,2,'Вы можете заренее зарезервировать ремон вашего автомобиля. Заполните все поля формы и коротко опишите пролему.'],
+            [1,2,'Вы можете заренее зарезервировать ремонт вашего автомобиля. Заполните все поля формы и коротко опишите проблему.'],
             [1,3,'lietuvuskas tekstas'],
 
             [2,1,'lietuvuskas tekstas'],
