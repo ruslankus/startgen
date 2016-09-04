@@ -24,6 +24,10 @@ class m160821_125133_MessagesContent extends Migration
             [2,2,'Ваша заявка получена, ближйщее время мы вам перезвоним для уточнение более точного вркмени визита '],
             [2,3,'lietuvuskas tekstas'],
 
+            [3,1,'Book repair'],
+            [3,2,'Здесь вы можете оставить заявку на ремонт.'],
+            [3,3,'Čia galite palikti paraišką remontui.'],
+
         ]);
     }
 

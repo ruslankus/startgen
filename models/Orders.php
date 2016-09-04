@@ -37,11 +37,13 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'car_id'], 'required'],
-            [['visit_date', 'created_at', 'updated_at'], 'safe'],
-            [['car_id', 'is_seen', 'is_active'], 'integer'],
+            [['name', 'phone', 'car_id', 'car_year','engine_power', 'visit_date' ], 'required'],
+            [[ 'created_at', 'updated_at'], 'safe'],
+           
+            [['car_id', 'is_seen', 'is_active', 'car_year','engine_power', 'engine_volume'], 'integer'],
+            [['car_year'], 'integer', 'min' => 1980 , 'max' => (int)date('Y')],
             [['problem_description'], 'string'],
-            [['name', 'phone', 'car_year', 'engine_power', 'engine_volume'], 'string', 'max' => 255],
+            [['name', 'phone', ], 'string', 'max' => 255],
         ];
     }
 

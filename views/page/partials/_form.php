@@ -32,7 +32,9 @@
                 <h3><?= Labels::t('info')?></h3><h5 class="<?= $lang_prefix?>"> </h5><div class="clearfix"> </div>
                 <p><?= Settings::getMap('street')?> <?= Settings::getMap('house')?>, <?= Settings::getMap('city')?></p>
 
-                <p>LT</p>
+
+                <p> <?= Settings::getMap('post_code') ?>  </p>
+
                 <p><?= Labels::t('phone')?>:<?= Settings::getMap('phone')?></p>
                 <p><?= Labels::t('mobile')?>: <?= Settings::getMap('mob_phone')?></p>
                 <p><?= Labels::t('email')?>: <span>
@@ -129,7 +131,7 @@
 
                     <div class="clearfix button-holder">
                         <div>
-                            <input type="submit" value="Submit" id="big-form">
+                            <input type="submit" value="<?= Labels::t('submit')?>" id="big-form">
                         </div>
                     </div>
 

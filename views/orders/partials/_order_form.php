@@ -47,9 +47,10 @@
                     'class' => 'form-group col-xs-12 col-sm-6'
                 ]])->textInput(['placeholder' => Labels::t('phone')]);  ?>
 
+                <?php $visit_day = !empty($order_model->visit_date) ? date('d.m.Y',strtotime($order_model->visit_date)) : ''; ?>
                 <?= $form->field($order_model, 'visit_date',['options' => [
                     'class' => 'form-group col-xs-12 col-sm-6'
-                ]])->textInput(['placeholder' => Labels::t('visit_date'), 'id' => 'visit-date']);  ?>
+                ]])->textInput(['placeholder' => Labels::t('visit_date'), 'id' => 'visit-date', 'value' => $visit_day ]);  ?>
 
 
                 <?= $form->field($order_model, 'car_id',['options' => [
@@ -85,8 +86,8 @@
 
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" id="send">Send</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><?= Labels::t('close')?></button>
+            <button type="submit" class="btn btn-primary" id="send"><?= Labels::t('send')?></button>
         </div>
 
     <?php ActiveForm::end();?>

@@ -86,7 +86,7 @@
     <div style="clear: both"></div>
 
     <div>
-        <input type="submit" value="Submit" id="big-form" />
+        <input type="submit" value="<?= \app\models\Labels::t('submit')?>" id="big-form" />
     </div>
 
 

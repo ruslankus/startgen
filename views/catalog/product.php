@@ -2,9 +2,14 @@
     use app\models\Labels;
     use yii\helpers\Html;
     use yii\widgets\Breadcrumbs;
+    use app\models\Languages;
 
-$this->params['breadcrumbs'][] = ['label' => Labels::t('catalog'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $product->category->content[0]->title, 'url' => ['category', 'id' => $product->category->id]];
+
+$lang_prefix = Languages::getCurrentLanguage()['prefix'];
+
+$this->params['breadcrumbs'][] = ['label' => Labels::t('catalog'), 'url' => ['index', 'language' => $lang_prefix ]];
+$this->params['breadcrumbs'][] = ['label' => $product->category->content[0]->title,
+    'url' => ['category', 'id' => $product->category->id , 'language' => $lang_prefix ]];
 $this->params['breadcrumbs'][] = $product->name;
 
 $image_path = !empty($product->old_id)? "/images/products/{$product->old_id}/"

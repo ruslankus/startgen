@@ -21,7 +21,8 @@ class m160809_133159_settings extends Migration
             ['flat', ''],
             ['phone', '852793989'],
             ['mob_phone', '+37063889128'],
-            ['email', "email.mobilestarter@gmail.com"]
+            ['email', "email.mobilestarter@gmail.com"],
+            ['post_code', "LT 02166"]
 
 
         ]);

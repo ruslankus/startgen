@@ -15,6 +15,7 @@ class m160821_125122_Messages extends Migration
         $this->batchInsert('messages', ['id','label'], [
             [1, 'make appointent'],
             [2, 'bookikng sussess'],
+            [3, 'book repair'],
 
         ]);
     }

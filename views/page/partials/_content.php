@@ -3,6 +3,7 @@
 use app\models\Labels;
 use yii\helpers\Url;
 use app\models\Languages;
+use app\models\Messages;
 
 $lang_prefix = Languages::getCurrentLanguage()['prefix'];
 
@@ -18,8 +19,8 @@ $content = !empty($trl_content['content']) ? $trl_content['content'] : 'NO TRANS
 <div class="big-button">
 
     <div class="big-b-text">
-        <p>Lorem ipsum dolor sit amet.</p>
-        <span>comvoluptate velit esse cillum dolore eu fugiat....</span>
+        <p><?= Messages::t('book repair') ?></p>
+
     </div>
     <div class="big-b-btn">
         <a href="<?= Url::to(['orders/index', 'language' => $lang_prefix ])?>" data-lang="<?= $lang_prefix ?>" class="book-apm">
