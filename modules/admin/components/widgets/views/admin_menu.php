@@ -111,6 +111,10 @@
                         <li>
                             <a href="<?= Url::toRoute(['/admin/messages'])?>">Messages</a>
                         </li>
+
+                        <li>
+                            <a href="<?= Url::toRoute(['/admin/car-list'])?>">Car list</a>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="#">Link</a> </li>

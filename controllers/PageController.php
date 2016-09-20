@@ -31,6 +31,7 @@ class PageController extends AppController
         $cache_name = "index_".Languages::getCurrentLanguage()['prefix'];
 
         $content_array = Yii::$app->cache->get($cache_name);
+        $seo_content = Yii::$app->cache->get($cache_name. '_seo');
 
         if(empty($content_array)) {
             $page = Pages::find()->with('seo', 'blocks')
@@ -46,12 +47,17 @@ class PageController extends AppController
             }
             
             $content_array['page_label'] = $page['label'];
+            $seo_content = array_shift($page['seo']);
+
+            Yii::$app->cache->add($cache_name . "_seo",$seo_content,self::$cache_time);
             Yii::$app->cache->add($cache_name,$content_array,self::$cache_time);
         }
 
         Yii::$app->view->params['page_label'] = $content_array['page_label'];
         //unset label
         unset($content_array['page_label']);
+        //setting seo
+        $this->setMeta($seo_content['title'], $seo_content['keywords'], $seo_content['description']);
         return  $this->render('index', compact('content_array'));
     }
 
@@ -65,6 +71,7 @@ class PageController extends AppController
         $cache_name = "page_{$id}_".Languages::getCurrentLanguage()['prefix'];
 
         $content_array = Yii::$app->cache->get($cache_name);
+        $seo_content = Yii::$app->cache->get($cache_name. '_seo');
 
         if(empty($content_array)) {
             $page = Pages::find()->with('seo', 'blocks')
@@ -80,13 +87,16 @@ class PageController extends AppController
             }
             
             $content_array['page_label'] = $page['label'];
-            
+            $seo_content = array_shift($page['seo']);
+
+            Yii::$app->cache->add($cache_name . "_seo",$seo_content,self::$cache_time);
             Yii::$app->cache->add($cache_name,$content_array,self::$cache_time);
         }
 
         Yii::$app->view->params['page_label'] = $content_array['page_label'];
         //unset label
         unset($content_array['page_label']);
+        $this->setMeta($seo_content['title'], $seo_content['keywords'], $seo_content['description']);
         return  $this->render('index', compact('content_array'));
     }
 
