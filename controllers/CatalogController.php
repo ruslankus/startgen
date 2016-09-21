@@ -33,7 +33,9 @@ class CatalogController extends AppController
 
         $parent_chunk_array = array_chunk($category_array['parent'],2);
 
-        return $this->render('index', compact('category_array', 'parent_chunk_array'));
+        $content = array_shift($category_array['content']);
+        $this->setMeta($content['title_seo'], $content['keywords'], $content['description_seo']);
+        return $this->render('index', compact('category_array', 'parent_chunk_array', 'content'));
     }
 
 
@@ -87,7 +89,17 @@ class CatalogController extends AppController
                 'language' => $current_lang ]);
         }
 
-        return $this->render('product', compact('product'));
+        $content  = $product->content[0]
+            ->toArray();
+
+        //getting category
+        $category = $product->category;
+        $category_content = $category->content[0]
+            ->toArray();
+
+        $this->setMeta($content['product_title'],$category_content['keywords'] ,$content['product_description']);
+
+        return $this->render('product', compact('product', 'content'));
     }
 
 }

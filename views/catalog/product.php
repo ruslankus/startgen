@@ -26,7 +26,7 @@ $image_path = !empty($product->old_id)? "/images/products/{$product->old_id}/"
 
     </div>
 
-    <h4>Product <?= $product->oneContent->product_title; ?>  </h4><h5> </h5><div class="clearfix"> </div>
+    <h4>Product <?= $content['product_title']; ?>  </h4><h5> </h5><div class="clearfix"> </div>
 
 
 
@@ -40,16 +40,16 @@ $image_path = !empty($product->old_id)? "/images/products/{$product->old_id}/"
         <div class="product-info col-xs-12 col-sm-5 col-md-6">
             <h2><?= $product->name?></h2>
 
-            <p><strong>Catalog number:</strong> Lorem ipsum dolor sit amet.</p>
+            <p><strong>Catalog number:</strong> <?= $product->catalog_number ?></p>
 
-            <p><strong>Part number: </strong></p>
+            <p><strong>Part number: </strong><?= $product->part_number ?> </p>
 
             <p><strong>Auto list:</strong> <?= $product->text?> </p>
         </div>
     </div>
 
     <div class="product-description">
-        <?= $product->oneContent->product_description;?>
+        <?= $content['product_description'];?>
     </div>
 
 </div>

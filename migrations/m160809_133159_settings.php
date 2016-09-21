@@ -22,6 +22,7 @@ class m160809_133159_settings extends Migration
             ['phone', '852793989'],
             ['mob_phone', '+37063889128'],
             ['email', "email.mobilestarter@gmail.com"],
+            ['order_email', 'ruslan@inlu.net'],
             ['post_code', "LT 02166"]
 
 

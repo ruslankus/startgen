@@ -4,14 +4,14 @@
     use app\models\Languages;
     use app\models\Labels;
 
- $cat_content = array_shift($category_array['content']) ;
+
  $lang_prefix = Languages::getCurrentLanguage()['prefix'];
 ?>
 
 <div class="services">
-    <h4><?=  $cat_content['title'] ?></h4><h5> </h5><div class="clearfix"> </div>
+    <h4><?=  $content['title'] ?></h4><h5> </h5><div class="clearfix"> </div>
     <div>
-        <?= $cat_content['text']; ?>
+        <?= $content['text']; ?>
     </div>
 
     <?php foreach ($parent_chunk_array as $chunk):?>

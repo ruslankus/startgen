@@ -10,6 +10,7 @@ namespace app\controllers;
 
 
 use app\models\Orders;
+use app\models\Settings;
 use Yii;
 use yii\helpers\FormatConverter;
 
@@ -38,6 +39,9 @@ class OrdersController extends AppController
                 $order_model->visit_date = date( 'Y-m-d H:i:s', strtotime($order_model->visit_date));
 
                 if($order_model->save()){
+                    //sending letter
+                    $this->sendLeter();
+
                     return $this->renderPartial('partials/_order_form_success');
                 }
 
@@ -69,6 +73,8 @@ class OrdersController extends AppController
                 $order_model->visit_date = date( 'Y-m-d H:i:s', strtotime($order_model->visit_date));
 
                 if($order_model->save()){
+
+                    $this->sendLeter();
                     return $this->renderPartial('partials/_order_page_form_success');
                 }
 
@@ -82,5 +88,25 @@ class OrdersController extends AppController
 
         }
     }
+
+
+
+    private function sendLeter()
+    {
+        $settings = Settings::getMap();
+
+        if(!empty($settings['order_email'])) {
+
+            Yii::$app->mailer->compose()
+                ->setFrom('admin@startmobile.lt')
+                ->setTo($settings['order_email'])
+                ->setSubject('Заявка отавленна')
+                ->setTextBody('На сайте оставленна заявка на ремонт')
+                ->setHtmlBody('<b>На сайте оставленна заявка на ремонт</b>')
+                ->send();
+        }
+    }
+
+
 
 }
