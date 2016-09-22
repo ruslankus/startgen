@@ -29,7 +29,7 @@ class m160808_190059_CategoryContent extends Migration
 
              [2,1,'starters','starters','starters seo descr','starters kewords', 'starters snippet', '' ],
              [2,2,'стартеры','стартеры', 'стартеры seo descr','стартеры kewords', 'стартеры snippet', '' ],
-             [2,3,'starterai','starterai', 'starterai seo descr','starterai kewords', 'starterai snippet', '' ],
+             [2,3,'starterai','starterai', 'starterai seo descr','starterai kewords', 'kokybiškos žymių gamintojų dalys', '' ],
 
              [3,1,'starters parts','starters parts', 'starters parts seo descr','starters parts kewords',
                  'starters parts snippet', '' ],
@@ -38,11 +38,12 @@ class m160808_190059_CategoryContent extends Migration
                  'стартеры детали snippet', '' ],
 
              [3,3,'starterių dalys','starterių dalys', 'starterių dalys seo descr','
-             starterių dalys kewords', 'starterių dalys snippet', '' ],
+             starterių dalys kewords', 'kokybiškos žymių gamintojų dalys', '' ],
 
              [4,1,'alterantors','alterantors','alterantors seo descr','alterantors kewords', 'alterantors snippet', '' ],
              [4,2,'генераторы','генераторы', 'генераторы seo descr','альтернаторы kewords', 'альтернаторы snippet', '' ],
-             [4,3,'generatoriai','generatoriai', 'generatoriai seo descr','generatoriai kewords', 'generatoriai snippet', '' ],
+             [4,3,'generatoriai','generatoriai', 'generatoriai seo descr','generatoriai kewords',
+                 'kokybiškos žymių gamintojų dalys', '' ],
 
              [5,1,'alterantors parts','alterantors parts','alterantors parts seo descr','alterantors parts kewords',
                  'alterantors parts snippet', '' ],
@@ -50,7 +51,8 @@ class m160808_190059_CategoryContent extends Migration
              [5,2,'Генератора детали','Генератора детали', 'Генератора детали seo descr',
                  'генераторы детали kewords', 'генераторы детали snippet', '' ],
              [5,3,'generatorių dalys','generatorių dalys', 'generatorių dalys seo descr',
-                 'generatorių dalys kewords', 'generatorių dalys snippet', '' ],
+
+                 'generatorių dalys kewords', 'kokybiškos žymių gamintojų dalys', '' ],
 
              [6,1,'others parts','others parts','others parts seo descr','others parts kewords',
                  'others parts snippet', '' ],

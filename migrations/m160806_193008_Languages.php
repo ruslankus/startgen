@@ -20,9 +20,9 @@ class m160806_193008_Languages extends Migration
         ]);
 
         $this->batchInsert('languages', ['prefix', 'locale', 'name','active', 'default', 'created_at', 'updated_at'], [
-            ['en', 'en-EN', 'English',true ,true , date("Y-m-d H:i:s"), date("Y-m-d H:i:s") ],
+            ['en', 'en-EN', 'English',false ,false , date("Y-m-d H:i:s"), date("Y-m-d H:i:s") ],
             ['ru', 'ru-RU', 'Русский',true ,false, date("Y-m-d H:i:s"), date("Y-m-d H:i:s") ],
-            ['lt', 'lt-LT', 'Lietuvių',true ,false, date("Y-m-d H:i:s"), date("Y-m-d H:i:s") ],
+            ['lt', 'lt-LT', 'Lietuvių',true ,true, date("Y-m-d H:i:s"), date("Y-m-d H:i:s") ],
         ]);
 
     }

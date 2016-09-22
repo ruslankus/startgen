@@ -104,17 +104,9 @@ class m160810_195815_LabelsContent extends Migration
             [22,2, 'Мобильный'],
             [22,3, 'Mobilus'],
 
-
-
-
-
-
-
-
-
-
-
-
+            [23,1, 'Refresh'],
+            [23,2, 'Обновить'],
+            [23,3, 'Refresh'],
 
         ]);
     }

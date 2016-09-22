@@ -8,13 +8,36 @@ use Yii;
 class User extends ActiveRecord implements \yii\web\IdentityInterface
 {
 
+
+
     public static function tableName()
     {
         return 'users';
     }
 
     public $accessToken;
+    public $password_repeat;
 
+
+    public function beforeSave($insert)
+    {
+        $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+        return true;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+
+            [['username', 'password', 'password_repeat'], 'required' ],
+            [['password'], 'compare' ],
+
+
+        ];
+    }
 
     /**
      * @inheritdoc
@@ -82,5 +105,17 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     public function generateauthKey()
     {
         return $this->auth_key = Yii::$app->security->generateRandomString();
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+
+            'password_repeat' => "Password reapeat"
+        ];
     }
 }

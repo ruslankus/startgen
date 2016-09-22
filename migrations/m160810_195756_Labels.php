@@ -35,6 +35,7 @@ class m160810_195756_Labels extends Migration
             [20, 'submit'],
             [21, 'email'],
             [22, 'mobile'],
+            [23, 'refresh']
 
 
 

@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Languages', ['create'], ['class' => 'btn btn-success']) ?>
+
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -29,8 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'active',
                 'value' => function($data)
                 {
-                    return ($data->active)? "<a class='btn btn-sm btn-danger' href='' >Off</a>" :
-                        "<a class='btn btn-sm btn-success' href='' >On</a>" ;
+                    return ($data->active)? "<a class='btn btn-sm  btn-success' href='' >On</a>" :
+                        "<a class='btn btn-sm btn-danger' href='' >Off</a>" ;
 
                 },
                 'format' => 'html'
@@ -41,8 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'default',
                 'value' => function($data)
                 {
-                    return ($data->default) ? "Yes" :
-                        "<a class='btn btn-sm btn-success' href='' >Make default</a>";
+                    return ($data->default) ? "Yes" : " ---";
                 },
                 'format' => 'html'
 
@@ -50,7 +49,27 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+
+                'buttons' => [
+
+                    'view' => function($url, $model)
+                    {
+                        return $model->default ? "" : Html::a('Update', $url);
+                    },
+                    'update' => function($data)
+                    {
+                        return false;
+                    },
+                    'delete' => function($data)
+                    {
+                        return false;
+                    },
+
+
+                ]
+
+            ],
         ],
     ]); ?>
 </div>

@@ -17,17 +17,41 @@ class m160808_112059_PagesSeoTrl extends Migration
 
 
         $this->batchInsert('pages_seo_trl' , ['page_id', 'lang_id', 'description', 'keywords', 'title'], [
-            [1,1,"meta description", 'meta keywords',  ' main page title'],
-            [1,2,"meta russian description", 'meta russian keywords',  ' main russian page title'],
-            [1,3,"meta lithuanian description", 'meta lithuanian keywords',  ' main lithuanian page title'],
+            [1,1,
+                "Starterių,Generatorių detalių pardavimas.Starteriai,Generatoriai,Bosch, Valeo Mitsubishi,Motokraft,Denso,Marelli,Mitsuba.",
+                'meta keywords',
+                'Starterių Generatorių remontas ir pardavimas,Starterių,Generatorių restauracija.'],
+
+
+            [1,2,"Starterių,Generatorių detalių pardavimas.Starteriai,Generatoriai,Bosch, Valeo Mitsubishi,Motokraft,Denso,Marelli,Mitsuba.",
+                'meta russian keywords',
+                'Starterių Generatorių remontas ir pardavimas,Starterių,Generatorių restauracija.'],
+
+            [1,3,"Starterių,Generatorių detalių pardavimas.Starteriai,Generatoriai,Bosch, Valeo Mitsubishi,Motokraft,Denso,Marelli,Mitsuba.",
+
+                'meta lithuanian keywords',
+
+                'Starterių Generatorių remontas ir pardavimas,Starterių,Generatorių restauracija.'],
 
             [2,1,"meta description", 'meta keywords',  ' main page title'],
             [2,2,"meta russian description", 'meta russian keywords',  ' main russian page title'],
-            [2,3,"meta lithuanian description", 'meta lithuanian keywords',  ' main lithuanian page title'],
+            [2,3,
+                " Starterių,Generatorių detalių pardavimas.Starteriai,Generatoriai,Bosch, Valeo Mitsubishi,Motokraft,Denso,Marelli,Mitsuba.",
+
+                'meta lithuanian keywords',
+
+                'Starterių Generatorių remontas ir pardavimas,Starterių,Generatorių restauracija.'],
 
             [3,1,"meta description", 'meta keywords',  ' main page title'],
-            [3,2,"meta russian description", 'meta russian keywords',  ' main russian page title'],
-            [3,3,"meta lithuanian description", 'meta lithuanian keywords',  ' main lithuanian page title'],
+            [3,2,"meta russian description",
+
+                'meta russian keywords',
+
+                ' main russian page title'],
+
+            [3,3," Starterių,Generatorių detalių pardavimas.Starteriai,Generatoriai,Bosch, Valeo Mitsubishi,Motokraft,Denso,Marelli,Mitsuba.",
+                'meta lithuanian keywords',
+                'Starterių Generatorių remontas ir pardavimas,Starterių,Generatorių restauracija.'],
 
         ]);
     }

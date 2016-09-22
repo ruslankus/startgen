@@ -18,9 +18,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'active')->textInput() ?>
+    <?= $form->field($model, 'active')->checkbox([false,true]) ?>
 
-    <?= $form->field($model, 'default')->textInput() ?>
+    <?= $form->field($model, 'default')->hiddenInput(['value' => $default])->label(false) ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 

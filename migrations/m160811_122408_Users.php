@@ -19,6 +19,7 @@ class m160811_122408_Users extends Migration
         $this->batchInsert('users',
             ['root','username','password','auth_key'],
             [
+                [ true, 'root', '$2y$13$hUv8k462BU.O744Jn0kbSOTBDO.K/5nWX.sjFY080LAtwJBREGfAG', null ],
                 [ false, 'admin', '$2y$13$aEn58tAKyUcsvgyjm5CtDeOkSXu.XcKqLQ.4ZylWk3.nsGQ1uL5km', null ]
             ]
         );
